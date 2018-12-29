@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Justin Swirbul</title>
+	<link rel="shortcut icon" type="image/x-icon" href="./img/logo-black-on-white.png">
+	<link rel="icon" type="image/ico" href="./img/logo-black-on-white.png">
+</head>
+<body>
+
+	<script src="js/three.min.js"></script>
+	<script src="js/OrbitControls.js"></script>
+	<script>
+		// stats.js
+		(function(){var script=document.createElement('script');script.onload=function(){var stats=new Stats();document.body.appendChild(stats.dom);requestAnimationFrame(function loop(){stats.update();requestAnimationFrame(loop)});};script.src='//mrdoob.github.io/stats.js/build/stats.min.js';document.head.appendChild(script);})()
+
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);	// fov, aspect ratio, ncp, fcp
+
+		var renderer = new THREE.WebGLRenderer();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+
+		window.addEventListener('resize', function() {
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+		})
+
+		controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+
+		var geometry = new THREE.BoxGeometry(1, 2, 0.05);
+		var materials = 
+		[
+			new THREE.MeshBasicMaterial({	// right side
+				color: 0xffffff,
+				side: THREE.DoubleSide
+			}),
+			new THREE.MeshBasicMaterial({	// left side
+				color: 0xffffff,
+				side: THREE.DoubleSide
+			}),
+			new THREE.MeshBasicMaterial({	// top side
+				color: 0xffffff,
+				side: THREE.DoubleSide
+			}),
+			new THREE.MeshBasicMaterial({	// bottom side
+				color: 0xffffff,
+				side: THREE.DoubleSide
+			}),
+			new THREE.MeshBasicMaterial({	// front side
+				map: new THREE.TextureLoader().load('img/card-front.png'),
+				side: THREE.DoubleSide
+			}),
+			new THREE.MeshBasicMaterial({	// back side
+				map: new THREE.TextureLoader().load('img/card-back.png'),
+				side: THREE.DoubleSide
+			})
+		]
+		var material = new THREE.MeshFaceMaterial(materials);
+		var card = new THREE.Mesh(geometry, material);
+		scene.add(card);
+
+		camera.position.z = 3;
+
+
+
+		var update = function() {
+			//card.rotation.x += 0.01;
+			card.rotation.y += 0.008;
+		};
+
+		var render = function() {
+			renderer.render(scene, camera);
+		}
+
+		var Draw = function() {
+			requestAnimationFrame(Draw);
+
+			update();
+			render();
+		}
+
+		Draw();
+
+	</script>
+
+
+	
+
+</body>
+
+
+<style type="text/css">
+
+	body {
+		margin: 0;
+	}
+
+	canvas {
+		width: 100%;
+		height: 100%;
+	}
+
+</style>
+
+</html>
