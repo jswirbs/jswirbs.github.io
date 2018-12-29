@@ -1,1 +1,108 @@
-my site
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Justin Swirbul</title>
+</head>
+<body>
+
+	<script src="js/three.min.js"></script>
+	<script>
+		var scene = new THREE.Scene();
+		var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);	// fov, browser ratio, ncp, fcp
+
+		var renderer = new THREE.WebGLRenderer();
+		renderer.setSize(window.innerWidth, window.innerHeight);
+		document.body.appendChild(renderer.domElement);
+
+		var update = function() {
+
+		};
+
+		var render = function() {
+			renderer.render(scene, camera);
+		}
+
+		var GameLoop = function() {
+			requestAnimationFrame(GameLoop);
+
+			update();
+			render();
+		}
+
+		GameLoop();
+	</script>
+	
+
+</body>
+
+
+<style type="text/css">
+	@font-face {
+	    font-family: "univers";
+	    src: url("./fonts/univers.eot");
+	    src: url("./fonts/univers.woff") format('woff'),
+	    	 url("./fonts/univers.ttf") format('truetype'),
+	         url("./fonts/univers.svg#font") format('svg');
+	}
+	@font-face {
+	    font-family: "univers-light";
+	    src: url("./fonts/univers-light.eot");
+	    src: url("./fonts/univers-light.woff") format('woff'),
+	     	 url("./fonts/univers-light.ttf") format('truetype'),
+	         url("./fonts/univers-light.svg#font") format('svg');
+	}
+	@font-face {
+	    font-family: "univers-lightoblique";
+	    src: url("./fonts/univers-lightoblique.eot");
+	    src: url("./fonts/univers-lightoblique.woff") format('woff'),
+	    	 url("./fonts/univers-lightoblique.ttf") format('truetype'),
+	         url("./fonts/univers-lightoblique.svg#font") format('svg');
+	}
+	@font-face {
+	    font-family: "univers-lightultracondensed";
+	    src: url("./fonts/univers-lightultracondensed.eot");
+	    src: url("./fonts/univers-lightultracondensed.woff") format('woff'),
+	    	 url("./fonts/univers-lightultracondensed.ttf") format('truetype'),
+	         url("./fonts/univers-lightultracondensed.svg#font") format('svg');
+	}
+	@font-face {
+	    font-family: "univers-condensedbold";
+	    src: url("./fonts/univers-condensedbold.eot");
+	    src: url("./fonts/univers-condensedbold.woff") format('woff'),
+	    	 url("./fonts/univers-condensedbold.ttf") format('truetype'),
+	         url("./fonts/univers-condensedbold.svg#font") format('svg');
+	}
+	@font-face {
+	    font-family: "univers-condensedboldoblique";
+	    src: url("./fonts/univers-condensedboldoblique.eot");
+	    src: url("./fonts/univers-condensedboldoblique.woff") format('woff'),
+	    	 url("./fonts/univers-condensedboldoblique.ttf") format('truetype'),
+	         url("./fonts/univers-condensedboldoblique.svg#font") format('svg');
+	}
+	@font-face {
+	    font-family: "univers-condensedlightoblique";
+	    src: url("./fonts/univers-condensedlightoblique.eot");
+	    src: url("./fonts/univers-condensedlightoblique.woff") format('woff'),
+	    	 url("./fonts/univers-condensedlightoblique.ttf") format('truetype'),
+	         url("./fonts/univers-condensedlightoblique.svg#font") format('svg');
+	}
+
+
+
+	* {
+	  font-family: "univers-light"
+	}
+
+	body {
+		margin: 0;
+	}
+
+	canvas {
+		width: 100%;
+		height: 100%;
+	}
+
+
+</style>
+
+</html>
