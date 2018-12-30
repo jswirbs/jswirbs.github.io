@@ -21,7 +21,9 @@
 			var stats;
 			var scene, camera, renderer;
 
-			var mouse = new THREE.Vector2(), INTERSECTED;
+			var mouse = new THREE.Vector2(Number.MAX_SAFE_INTEGER);
+			var INTERSECTED;
+			
 			var frustumSize = 400;
 
 			init();
