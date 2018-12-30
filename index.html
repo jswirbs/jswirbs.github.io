@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>three.js webgl - interactive cubes</title>
+		<title>JUSTIN SWIRBUL</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="shortcut icon" type="image/x-icon" href="./img/logo-black-on-white.png">
@@ -14,24 +14,31 @@
 		<script src="js/three.min.js"></script>
 		<script src="js/cubeData.js"></script>
 
-		<script src="js/stats.min.js"></script>
+		<!--<script src="js/stats.min.js"></script>-->
 
 		<script>
 
-			var stats;
+			// var stats;
 			var scene, camera, renderer;
 
 			var mouse = new THREE.Vector2(Number.MAX_SAFE_INTEGER);
 			var INTERSECTED;
-			
+
 			var frustumSize = 400;
+			var baseColor = 0xffffff;
+
+			// triggers block explosion when going to projects page
+			var explode = false;
+
 
 			init();
 			animate();
 
+
 			function init() {
 
 				var canvas = document.createElement('div');
+				canvas.setAttribute('id', 'canvas')
 				canvas.setAttribute('class', 'canvas')
 				document.body.appendChild(canvas);
 
@@ -40,37 +47,15 @@
 				//camera = new THREE.PerspectiveCamera(75, aspect, .1, 3000);
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color(0xc0c0c0);
+				scene.background = new THREE.Color(0xd0d0d0);
 
 				var light = new THREE.DirectionalLight(0xffffff, 1);
 				light.position.set(1, 1, 1).normalize();
 				scene.add(light);
-
-				//var geometry = new THREE.BoxBufferGeometry( 20, 20, 20 );
-
-				// for ( var i = 0; i < 2000; i ++ ) {
-
-				// 	var object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
-
-				// 	object.position.x = Math.random() * 800 - 400;
-				// 	object.position.y = Math.random() * 800 - 400;
-				// 	object.position.z = Math.random() * 800 - 400;
-
-				// 	object.rotation.x = Math.random() * 2 * Math.PI;
-				// 	object.rotation.y = Math.random() * 2 * Math.PI;
-				// 	object.rotation.z = Math.random() * 2 * Math.PI;
-
-				// 	object.scale.x = Math.random() + 0.5;
-				// 	object.scale.y = Math.random() + 0.5;
-				// 	object.scale.z = Math.random() + 0.5;
-
-				// 	scene.add( object );
-
-				// }
 				
 
 				// function from cubeData.js that adds cubes to scene
-				buildCubeData(scene, 20);
+				buildCubeData(scene, 20, baseColor);
 
 
 				renderer = new THREE.WebGLRenderer();
@@ -78,8 +63,8 @@
 				renderer.setSize(window.innerWidth, window.innerHeight);
 				canvas.appendChild(renderer.domElement);
 
-				stats = new Stats();
-				canvas.appendChild(stats.dom);
+				// stats = new Stats();
+				// canvas.appendChild(stats.dom);
 
 				document.addEventListener('mousemove', onDocumentMouseMove);
 
@@ -116,51 +101,97 @@
 				requestAnimationFrame(animate);
 
 				render();
-				stats.update();
+				// stats.update();
 
 			}
 
-			var theta = -40;
+
+			var theta = 320;
 
 			function render() {
 
-				theta += 0.1;
+				theta += .06 + Math.min(theta % 90, 90 - theta % 90) / 180;
 
 				camera.position.x = 500 * Math.sin(THREE.Math.degToRad(theta));
-				camera.position.y = 500 * Math.sin(THREE.Math.degToRad(theta * 2));
+				camera.position.y = 350 * Math.sin(THREE.Math.degToRad(theta * 2));
 				camera.position.z = 500 * Math.cos(THREE.Math.degToRad(theta));
 				camera.lookAt( scene.position );
 
 				camera.updateMatrixWorld();
 
+				if (explode) {
+					for (var i = 0; i < scene.children.length; i++) {
+						if (scene.children[i].position.x < 5 && scene.children[i].position.x >= 0) {
+							scene.children[i].position.x += .4;
+						} else if (scene.children[i].position.x > -5 && scene.children[i].position.x <= 0) {
+							scene.children[i].position.x -= .4;
+						}
+						if (scene.children[i].position.y < 5 && scene.children[i].position.y >= 0) {
+							scene.children[i].position.y += .4;
+						} else if (scene.children[i].position.y > -5 && scene.children[i].position.y <= 0) {
+							scene.children[i].position.y -= .4;
+						}
+						if (scene.children[i].position.z < 5 && scene.children[i].position.z >= 0) {
+							scene.children[i].position.z += .4;
+						} else if (scene.children[i].position.z > -5 && scene.children[i].position.z <= 0) {
+							scene.children[i].position.z -= .4;
+						}
 
-				// ray casting
-				var raycaster = new THREE.Raycaster();
-				raycaster.setFromCamera(mouse, camera);
-
-				var intersects = raycaster.intersectObjects(scene.children);
-
-				if (intersects.length > 0) {
-
-					if (INTERSECTED != intersects[0].object) {
-
-						if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-
-						INTERSECTED = intersects[0].object;
-						INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
-						INTERSECTED.material.emissive.setHex(0xff0000);
-
+						scene.children[i].position.x *= 1.04;
+						scene.children[i].position.y *= 1.04;
+						scene.children[i].position.z *= 1.04;
 					}
-
-				} else {
-
-					if (INTERSECTED) INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
-
-					INTERSECTED = null;
-
 				}
 
+				// ray casting
+				// var raycaster = new THREE.Raycaster();
+				// raycaster.setFromCamera(mouse, camera);
+
+				// var intersects = raycaster.intersectObjects(scene.children);
+
+				// if (intersects.length > 0) {
+
+				// 	if (INTERSECTED != intersects[0].object) {
+
+				// 		if (INTERSECTED) {
+				// 			INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+				// 		}
+
+				// 		INTERSECTED = intersects[0].object;
+				// 		INTERSECTED.currentHex = INTERSECTED.material.emissive.getHex();
+				// 		INTERSECTED.material.emissive.setHex(0xff0000);
+
+				// 	}
+
+				// } else {
+
+				// 	if (INTERSECTED) {
+				// 		INTERSECTED.material.emissive.setHex(INTERSECTED.currentHex);
+				// 	}
+
+				// 	INTERSECTED = null;
+
+				// }
+
 				renderer.render(scene, camera);
+
+			}
+
+
+			function openProjects() {
+				explode = true;
+
+				setTimeout(function() {
+					document.body.style.animation = 'fadeout 2s';
+		       		document.body.style.WebkitAnimation = 'fadeout 2s';
+
+		       		setTimeout(function() {
+		       			document.getElementById('container').style.backgroundColor = 'white';
+						document.getElementById('content').style.visibility = 'hidden';
+		       			document.getElementById('canvas').style.visibility = 'hidden';
+		       		}, 2000);
+
+				}, 0);
 
 			}
 
@@ -168,9 +199,9 @@
 
 
 
-		<div class="container">
+		<div class="container" id="container">
 
-			<div class="content">
+			<div class="content" id="content">
 				
 				<div>
 					<img src="./img/logo-white-on-trans.png" width="80px" height="80px">
@@ -190,7 +221,7 @@
 
 				<div>
 					<a class="icon" href="./resume.pdf"><i class="fa fa-file-text"><span class="icon-text">resume</span></i></a>
-				  	<a class="icon" href="./projects.html"><i class="fa fa-pencil"><span class="icon-text">projects</span></i></a>
+				  	<a class="icon" style="cursor: pointer;" onclick="openProjects()"><i class="fa fa-code"><span class="icon-text">projects</span></i></a>
 					<a class="icon" href="mailto:swirbulj@seas.upenn.edu"><i class="fa fa-envelope"><span class="icon-text">swirbulj@seas.upenn.edu</span></i></a>
 					<a class="icon" href="https://www.linkedin.com/in/justin-swirbul-64a541144/" target="_blank"><i class="fa fa-linkedin"><span class="icon-text">linkedin</span></i></a>
 					<a class="icon" href="https://github.com/jswirbs" target="_blank"><i class="fa fa-github"><span class="icon-text">github</span></i></a>
@@ -199,6 +230,13 @@
 			</div>
 
 		</div>
+
+		<!--
+		<div class="footer">
+			heyooo000 safajsfalsj flasfjaslf asflas
+			<a class="icon" href=""><i class="fa fa-chevron-circle-up"></i></a>
+		</div>
+		-->
 
 	</body>
 
@@ -257,6 +295,7 @@
 		html {
 			margin: 0;
 			height: 100vh;
+			
 		}
 
 		body {
@@ -264,10 +303,18 @@
 			height: 100%;
 			width: 100%;
 			overflow: hidden;
+
+			-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+		       -moz-animation: fadein 2s; /* Firefox < 16 */
+		        -ms-animation: fadein 2s; /* Internet Explorer */
+		         -o-animation: fadein 2s; /* Opera < 12.1 */
+		            animation: fadein 2s;
 		}
 
 		.canvas {
 			/* filter: blur(1px); */
+			filter: contrast(150%);
+			-webkit-filter: contrast(150%);
 		}
 
 		.container {
@@ -325,6 +372,61 @@
 		.icon:hover .icon-text {
 			visibility: visible;
 			color: #fff;
+		}
+
+		.footer {
+			position: fixed;
+			right: 0;
+			bottom: 0;
+			padding: 10px;
+			background-color: red;
+			color: white;
+			text-align: right;
+		}
+
+
+
+
+		/* FADE INS */
+		@keyframes fadein {
+		    from { opacity: 0; }
+		    to   { opacity: 1; }
+		}
+
+		/* Firefox < 16 */
+		@-moz-keyframes fadein {
+		    from { opacity: 0; }
+		    to   { opacity: 1; }
+		}
+
+		/* Safari, Chrome and Opera > 12.1 */
+		@-webkit-keyframes fadein {
+		    from { opacity: 0; }
+		    to   { opacity: 1; }
+		}
+
+		/* Internet Explorer */
+		@-ms-keyframes fadein {
+		    from { opacity: 0; }
+		    to   { opacity: 1; }
+		}
+
+		/* Opera < 12.1 */
+		@-o-keyframes fadein {
+		    from { opacity: 0; }
+		    to   { opacity: 1; }
+		}
+
+		/* FADE OUTS */
+		@keyframes fadeout {
+		    from { opacity: 1; }
+		    to   { opacity: 0; }
+		}
+
+		/* Safari, Chrome and Opera > 12.1 */
+		@-webkit-keyframes fadeout {
+		    from { opacity: 1; }
+		    to   { opacity: 0; }
 		}
 
 	</style>
