@@ -182,14 +182,19 @@
 				explode = true;
 
 				setTimeout(function() {
+
 					document.body.style.animation = 'fadeout 2s';
 		       		document.body.style.WebkitAnimation = 'fadeout 2s';
 
 		       		setTimeout(function() {
+
 		       			document.getElementById('container').style.backgroundColor = 'white';
 						document.getElementById('content').style.visibility = 'hidden';
 		       			document.getElementById('canvas').style.visibility = 'hidden';
-		       		}, 2000);
+
+		       			window.location.href = "/projects.html"
+
+		       		}, 1900);
 
 				}, 0);
 
@@ -231,12 +236,6 @@
 
 		</div>
 
-		<!--
-		<div class="footer">
-			heyooo000 safajsfalsj flasfjaslf asflas
-			<a class="icon" href=""><i class="fa fa-chevron-circle-up"></i></a>
-		</div>
-		-->
 
 	</body>
 
@@ -328,7 +327,8 @@
 
 		.content {
 			position: absolute;
-			top: 30vh;
+			top: 50vh;
+			margin-top: -116px;
 			width: 100%;
 			text-align: center;
 		}
@@ -373,17 +373,6 @@
 			visibility: visible;
 			color: #fff;
 		}
-
-		.footer {
-			position: fixed;
-			right: 0;
-			bottom: 0;
-			padding: 10px;
-			background-color: red;
-			color: white;
-			text-align: right;
-		}
-
 
 
 
