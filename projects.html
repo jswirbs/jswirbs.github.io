@@ -8,19 +8,20 @@
 	</head>
 
 	<body onscroll="highlightLinks()">
+
 		<script src="js/three.min.js"></script>
 
-		<div class="banner">
+		<div class="banner" style="background-color: black;">
 			<a href="/" style="position: absolute; top: 26px; left: 34px; font-size: 24px; color: white;">
-				<i class="fa fa-angle-double-left"></i>
+				<i class="fa fa-arrow-circle-left"></i>
 			</a>
 
 			<a href="/" style="position: absolute; top: 18px; right: 16px;">
 				<img src="./img/logo-white-on-trans.png" width="60px">
 			</a>
 
-			<div style="padding: 220px 150px;">
-				just a few things I've been working on recently.
+			<div style="padding: 40vh 150px;">
+				here are just a few things I've been building recently.
 			</div>
 
 			<a href="#atlas" id="initial-scroll" style="color: white; font-size: 36px; bottom: 50px; position: absolute;">
@@ -34,7 +35,7 @@
 
 
 		<a href="/" style="position: fixed; top: 26px; left: 34px; font-size: 24px;">
-			<i class="fa fa-angle-double-left"></i>
+			<i class="fa fa-arrow-circle-left"></i>
 		</a>
 
 		<a href="/" style="position: fixed; top: 18px; right: 16px;">
@@ -153,7 +154,7 @@
 					SKILLS
 				</h3>
 				<h4>
-					C++ &nbsp;//&nbsp; GLSL &nbsp;//&nbsp; Qt
+					C++ &nbsp;//&nbsp; OpenGL &nbsp;//&nbsp; Qt
 				</h4>
 			</div>
 
@@ -164,7 +165,7 @@
 			
 			<h4>Some good old info on that good old minecraft game</h4>
 
-			Some good old non h4
+			<p>Some good old non h4, this some p stuff</p>
 
 			EMBEDDED VIDEO
 
@@ -244,7 +245,7 @@
 					SKILLS
 				</h3>
 				<h4>
-					Python &nbsp;//&nbsp; SQL &nbsp;//&nbsp; Networks and Security
+					Python &nbsp;//&nbsp; SQL &nbsp;//&nbsp; Docker &nbsp;//&nbsp; Networks and Security
 				</h4>
 			</div>
 
@@ -325,22 +326,22 @@
 			var threshold = 400;
 			var highlight = '#ee3322';
 
-			if (checkPositioning(document.getElementById('ectf-challenge'), threshold, 'above')) {
+			if (checkPositioning(document.getElementById('ectf-challenge'), threshold)) {
 				document.getElementById('ectf-challenge-scroll').style.color = highlight;
 				document.getElementById('boxnet-scroll').style.color = '#666';
 				document.getElementById('mini-minecraft-scroll').style.color = '#666';
 				document.getElementById('atlas-scroll').style.color = '#666';
-			} else if (checkPositioning(document.getElementById('boxnet'), threshold, 'above')) {
+			} else if (checkPositioning(document.getElementById('boxnet'), threshold)) {
 				document.getElementById('ectf-challenge-scroll').style.color = '#666';
 				document.getElementById('boxnet-scroll').style.color = highlight;
 				document.getElementById('mini-minecraft-scroll').style.color = '#666';
 				document.getElementById('atlas-scroll').style.color = '#666';
-			} else if (checkPositioning(document.getElementById('mini-minecraft'), threshold, 'above')) {
+			} else if (checkPositioning(document.getElementById('mini-minecraft'), threshold)) {
 				document.getElementById('ectf-challenge-scroll').style.color = '#666';
 				document.getElementById('boxnet-scroll').style.color = '#666';
 				document.getElementById('mini-minecraft-scroll').style.color = highlight;
 				document.getElementById('atlas-scroll').style.color = '#666';
-			} else if (checkPositioning(document.getElementById('atlas'), threshold, 'above')) {
+			} else if (checkPositioning(document.getElementById('atlas'), threshold)) {
 				document.getElementById('ectf-challenge-scroll').style.color = '#666';
 				document.getElementById('boxnet-scroll').style.color = '#666';
 				document.getElementById('mini-minecraft-scroll').style.color = '#666';
@@ -487,6 +488,10 @@
 			font-size: 16px;
 			color: #666;
 			margin: 10px 0 20px 0;
+		}
+
+		p {
+			
 		}
 
 		a {
