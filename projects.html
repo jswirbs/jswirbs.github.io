@@ -4,17 +4,352 @@
 		<title>JUSTIN SWIRBUL</title>
 		<link rel="shortcut icon" type="image/x-icon" href="./img/logo-black-on-white.png">
 		<link rel="icon" type="image/ico" href="./img/logo-black-on-white.png">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head>
 
-	<body>
+	<body onscroll="highlightLinks()">
 		<script src="js/three.min.js"></script>
-		<script>
-			
-		</script>
 
-		under contstruction...
+		<div class="banner">
+			<a href="/" style="position: absolute; top: 26px; left: 34px; font-size: 24px; color: white;">
+				<i class="fa fa-angle-double-left"></i>
+			</a>
+
+			<a href="/" style="position: absolute; top: 18px; right: 16px;">
+				<img src="./img/logo-white-on-trans.png" width="60px">
+			</a>
+
+			<div style="padding: 220px 150px;">
+				just a few things I've been working on recently.
+			</div>
+
+			<a href="#atlas" id="initial-scroll" style="color: white; font-size: 36px; bottom: 50px; position: absolute;">
+				<i class="fa fa-angle-double-down"></i>
+			</a>
+		</div>
+
+		<div style="height: 100vh;">
+			<!-- div above (class="banner") has height 100vh and has absolute position so that it lays ontop of sidenavs. this placeholder div eats up that 100vh space underneath it so that the content below is properly spaced. -->
+		</div>
+
+
+		<a href="/" style="position: fixed; top: 26px; left: 34px; font-size: 24px;">
+			<i class="fa fa-angle-double-left"></i>
+		</a>
+
+		<a href="/" style="position: fixed; top: 18px; right: 16px;">
+			<img src="./img/logo-black-on-trans.png" width="60px">
+		</a>
+
+
+		<div class="sidebar-left">
+			<a href="#ectf-challenge" id="ectf-challenge-scroll">eCTF Challenge</a>
+			&nbsp; // &nbsp;
+			<a href="#boxnet" id="boxnet-scroll">BoxNet</a>
+			&nbsp; // &nbsp;
+			<a href="#mini-minecraft" id="mini-minecraft-scroll">Mini Minecraft</a>
+			&nbsp; // &nbsp;
+			<a href="#atlas" id="atlas-scroll">Atlas</a>
+		</div>
+
+
+		<div class="sidebar-right">
+			<a class="icon" href="/"><i class="fa fa-home"><span class="icon-text">home</span></i></a>
+			<br><br><br>
+			<a class="icon" href="./resume.pdf"><i class="fa fa-file-text"><span class="icon-text">resume</span></i></a>
+			<br><br><br>
+			<a class="icon" href="mailto:swirbulj@seas.upenn.edu"><i class="fa fa-envelope"><span class="icon-text">swirbulj@seas.upenn.edu</span></i></a>
+			<br><br><br>
+			<a class="icon" href="https://www.linkedin.com/in/justin-swirbul-64a541144/" target="_blank"><i class="fa fa-linkedin"><span class="icon-text">linkedin</span></i></a>
+			<br><br><br>
+			<a class="icon" href="https://github.com/jswirbs" target="_blank"><i class="fa fa-github"><span class="icon-text">github</span></i></a>
+		</div>
+		
+
+		<div class="project-header" id="atlas">
+
+			<div class="project-header-left">
+				<h1>
+					Atlas
+				</h1>
+				<h2>
+					A threat forecasting and intelligence visualization platform.
+				</h2>
+			</div>
+
+			<div class="project-header-right">
+				<h3>
+					DATE
+				</h3>
+				<h4>
+					June 2018 - present
+				</h4>
+				<h3>
+					LINK
+				</h3>
+				<h4>
+					<a href="https://atlas.verstaan.com">https://atlas.verstaan.com</a>
+				</h4>
+				<h3>
+					SKILLS
+				</h3>
+				<h4>
+					HTML &nbsp;//&nbsp; CSS &nbsp;//&nbsp; Vue.js &nbsp;//&nbsp; Firebase
+				</h4>
+			</div>
+
+		</div>
+
+		
+		<div class="project-body" style="background-color: rgba(137, 194, 247, .5);">
+			
+			<img src="./img/atlas-incidents.png" width="100%" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+
+			<img src="./img/atlas-input.png" width="100%" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 100px;">
+
+		</div>
+
+		<div class="project-body" style="background-color: white;">
+			
+			<h4>yeahhhhhh boooiiiiii</h4>
+
+			<h4>aggregate</h4>
+
+			<h4>analyze</h4>
+
+			<h4>visualize</h4>
+			<h4>procreate</h4>
+
+		</div>
+
+
+
+
+		<div class="project-header" id="mini-minecraft">
+
+			<div class="project-header-left">
+				<h1>
+					Mini Minecraft
+				</h1>
+				<h2>
+					An interactive 3D world exploration and alteration game in the style of Minecraft.
+				</h2>
+			</div>
+
+			<div class="project-header-right">
+				<h3>
+					DATE
+				</h3>
+				<h4>
+					November - December 2018
+				</h4>
+				<h3>
+					LINK
+				</h3>
+				<h4>
+					<a href="#">Demo Video</a>
+				</h4>
+				<h3>
+					SKILLS
+				</h3>
+				<h4>
+					C++ &nbsp;//&nbsp; GLSL &nbsp;//&nbsp; Qt
+				</h4>
+			</div>
+
+		</div>
+
+		
+		<div class="project-body" style="background-color: rgba(153, 240, 153, .5);">
+			
+			<h4>Some good old info on that good old minecraft game</h4>
+
+			Some good old non h4
+
+			EMBEDDED VIDEO
+
+		</div>
+
+
+
+
+		<div class="project-header" id="boxnet">
+
+			<div class="project-header-left">
+				<h1>
+					BoxNet
+				</h1>
+				<h2>
+					An IoT security device, inspired by botnets, defending against botnets.
+				</h2>
+			</div>
+
+			<div class="project-header-right">
+				<h3>
+					DATE
+				</h3>
+				<h4>
+					January - August 2018
+				</h4>
+				<h3>
+					LINK
+				</h3>
+				<h4>
+					<a href="#">Research Presentation PDF</a>
+				</h4>
+				<h3>
+					SKILLS
+				</h3>
+				<h4>
+					Python &nbsp;//&nbsp; C &nbsp;//&nbsp; Linux &nbsp;//&nbsp; Networks and Security
+				</h4>
+			</div>
+
+		</div>
+
+		
+		<div class="project-body" style="background-color: rgba(247, 194, 153, .5);">
+			
+			<h4>fuck me up with some h4ks bro</h4>
+
+		</div>
+
+
+
+		<div class="project-header" id="ectf-challenge">
+
+			<div class="project-header-left">
+				<h1>
+					Embedded Capture-the-Flag Challenge
+				</h1>
+				<h2>
+					Capture-the-Flag challenge run by Mitre, with the goal of creating a secure banking/atm system and breaking other teams' systems.
+				</h2>
+			</div>
+
+			<div class="project-header-right">
+				<h3>
+					DATE
+				</h3>
+				<h4>
+					January - April 2018
+				</h4>
+				<h3>
+					LINK
+				</h3>
+				<h4>
+					<a href="#">NaN</a>
+				</h4>
+				<h3>
+					SKILLS
+				</h3>
+				<h4>
+					Python &nbsp;//&nbsp; SQL &nbsp;//&nbsp; Networks and Security
+				</h4>
+			</div>
+
+		</div>
+
+		
+		<div class="project-body" style="background-color: rgba(167, 43, 183, .4);">
+			
+			<h4>yeah we did actually</h4>
+
+		</div>
+
 
 	</body>
+
+	<script>
+		function getElementY(query) {
+			return window.pageYOffset + document.querySelector(query).getBoundingClientRect().top
+		}
+
+		function smoothScroll(element, duration) {
+			var startingY = window.pageYOffset
+			var elementY = window.pageYOffset + document.querySelector(element).getBoundingClientRect().top
+			
+			// If element is close to page's bottom then window will scroll only to some position above the element.
+			var targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY
+			var diff = targetY - startingY
+
+			// Easing function: easeInOutCubic -- source: https://gist.github.com/gre/1650294
+			var easing = function (t) { return t<.5 ? 4*t*t*t : (t-1)*(2*t-2)*(2*t-2)+1 }
+			var startTime
+
+			if (!diff) {
+				return
+			}
+
+			window.requestAnimationFrame(function step(timestamp) {
+				if (!startTime) {
+					startTime = timestamp
+				}
+
+				var time = timestamp - startTime
+
+				// Get percent of completion in range [0, 1].
+				var percent = Math.min(time / duration, 1)
+
+				percent = easing(percent)
+
+				window.scrollTo(0, startingY + diff * percent)
+
+				// Proceed with animation for requested duration
+				if (time < duration) {
+					window.requestAnimationFrame(step)
+				}
+			})
+		}
+
+		document.getElementById('initial-scroll').addEventListener('click', smoothScroll.bind(null, '#atlas', 1000))
+		document.getElementById('atlas-scroll').addEventListener('click', smoothScroll.bind(null, '#atlas', 1000))
+		document.getElementById('mini-minecraft-scroll').addEventListener('click', smoothScroll.bind(null, '#mini-minecraft', 1000))
+		document.getElementById('boxnet-scroll').addEventListener('click', smoothScroll.bind(null, '#boxnet', 1000))
+		document.getElementById('ectf-challenge-scroll').addEventListener('click', smoothScroll.bind(null, '#ectf-challenge', 1000))
+
+
+
+		function checkPositioning(el, threshold) {
+			threshold = threshold || 0;
+
+			var rect = el.getBoundingClientRect();
+			var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+			var above = rect.bottom - threshold < 0;
+			var below = rect.top - viewHeight + threshold >= 0;
+
+			return above || !below;
+		}
+
+		function highlightLinks() {
+			var threshold = 400;
+			var highlight = '#ee3322';
+
+			if (checkPositioning(document.getElementById('ectf-challenge'), threshold, 'above')) {
+				document.getElementById('ectf-challenge-scroll').style.color = highlight;
+				document.getElementById('boxnet-scroll').style.color = '#666';
+				document.getElementById('mini-minecraft-scroll').style.color = '#666';
+				document.getElementById('atlas-scroll').style.color = '#666';
+			} else if (checkPositioning(document.getElementById('boxnet'), threshold, 'above')) {
+				document.getElementById('ectf-challenge-scroll').style.color = '#666';
+				document.getElementById('boxnet-scroll').style.color = highlight;
+				document.getElementById('mini-minecraft-scroll').style.color = '#666';
+				document.getElementById('atlas-scroll').style.color = '#666';
+			} else if (checkPositioning(document.getElementById('mini-minecraft'), threshold, 'above')) {
+				document.getElementById('ectf-challenge-scroll').style.color = '#666';
+				document.getElementById('boxnet-scroll').style.color = '#666';
+				document.getElementById('mini-minecraft-scroll').style.color = highlight;
+				document.getElementById('atlas-scroll').style.color = '#666';
+			} else if (checkPositioning(document.getElementById('atlas'), threshold, 'above')) {
+				document.getElementById('ectf-challenge-scroll').style.color = '#666';
+				document.getElementById('boxnet-scroll').style.color = '#666';
+				document.getElementById('mini-minecraft-scroll').style.color = '#666';
+				document.getElementById('atlas-scroll').style.color = highlight;
+			}
+		}
+		
+	</script>
+
 
 	<style>
 		@font-face {
@@ -69,16 +404,12 @@
 
 
 
-		html {
-/*			margin: 0;
-			height: 100vh;*/
-		}
-
 		body {
-/*			margin: 0;
+			margin: 0;
 			height: 100%;
 			width: 100%;
-			background-color: #d0d0d0;*/
+			font-family: "univers-light";
+			background-color: #f0f0f0;
 
 			-webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
 		       -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -87,8 +418,118 @@
 		            animation: fadein 2s;
 		}
 
-		
+		.banner {
+			position: absolute;
+			height: 100vh;
+			width: 100vw;
+			z-index: 3;
+			background-color: black;
+			color: white;
+			font-size: 36px;
+			text-align: center;
+		}
 
+		.sidebar-left {
+			transform: rotate(-90deg);
+			position: fixed;
+			width: 500px;
+			left: -210px;
+			bottom: 0;
+			margin-bottom: 270px;
+			text-align: left;
+		}
+
+		.project-header {
+			padding: 150px 150px;
+			min-height: 200px;
+		}
+
+		.project-header-left {
+			display: inline-block;
+			float: left;
+			width: 65%;
+			padding-right: 10%;
+		}
+
+		.project-header-right {
+			display: inline-block;
+			float: right;
+			width: 25%;
+		}
+
+		.project-body {
+			margin: 0;
+			padding: 150px 150px;
+		}
+
+		h1 {
+			font-family: "univers";
+			font-size: 42px;
+			margin: 0;
+		}
+
+		h2 {
+			font-family: "univers-light";
+			font-size: 24px;
+			color: #666;
+			margin: 10px 0 0 0;
+		}
+
+		h3 {
+			font-family: "univers";
+			font-size: 14px;
+			letter-spacing: 3px;
+			margin: 0;
+		}
+
+		h4 {
+			font-family: "univers-light";
+			font-size: 16px;
+			color: #666;
+			margin: 10px 0 20px 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: #666;
+		}
+
+		a:hover {
+			color: #aaa;
+		}
+
+
+		.sidebar-right {
+			position: fixed;
+			right: 24px;
+			bottom: 0;
+			margin-bottom: 30px;
+			text-align: center;
+		}
+
+		.icon {
+			font-size: 18px;
+			color: #666;
+			padding: 10px 10px;
+		}
+
+		.icon-text {
+			font-family: "univers-lightoblique";
+			visibility: hidden;
+			position: absolute;
+			width: 256px;
+			text-align: right;
+			margin-left: -280px;
+		}
+
+		.icon:hover {
+			color: #aaa;
+		}
+
+		.icon:hover .icon-text {
+			visibility: visible;
+			color: #666;
+		}
 
 
 		
