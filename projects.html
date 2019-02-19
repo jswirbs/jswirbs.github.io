@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>JUSTIN SWIRBUL</title>
+		<meta name="description" content="JUSTIN SWIRBUL >> UPENN // COMPUTER SCIENCE // DESIGN // ENTREPRENEURSHIP // SKI TEAM">
 		<link rel="shortcut icon" type="image/x-icon" href="./img/logo-black-on-white.png">
 		<link rel="icon" type="image/ico" href="./img/logo-black-on-white.png">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,8 +23,8 @@
 				below are a few things I have recently built.
 			</div>
 
-			<a href="#atlas" id="initial-scroll" style="color: white; font-size: 36px; bottom: 50px; position: absolute;">
-				<i class="fa fa-angle-double-down"></i>
+			<a id="initial-scroll" style="color: white; font-size: 36px; bottom: 50px; position: absolute;">
+				<i class="fa fa-angle-double-down scroll-link"></i>
 			</a>
 		</div>
 
@@ -42,13 +43,13 @@
 
 
 		<div class="sidebar-left">
-			<a href="#ectf-challenge" id="ectf-challenge-scroll">eCTF Challenge</a>
+			<a id="ectf-challenge-scroll" class="scroll-link">eCTF Challenge</a>
 			&nbsp; // &nbsp;
-			<a href="#boxnet" id="boxnet-scroll">BoxNet</a>
+			<a id="boxnet-scroll" class="scroll-link">BoxNet</a>
 			&nbsp; // &nbsp;
-			<a href="#mini-minecraft" id="mini-minecraft-scroll">Mini Minecraft</a>
+			<a id="mini-minecraft-scroll" class="scroll-link">Mini Minecraft</a>
 			&nbsp; // &nbsp;
-			<a href="#atlas" id="atlas-scroll">Atlas</a>
+			<a id="atlas-scroll" class="scroll-link">Atlas</a>
 		</div>
 
 
@@ -332,7 +333,7 @@
 
 
 		<div style="text-align: center; color: black; margin: 20px 0;">
-			<a href="#atlas" id="top-scroll"><i class="fa fa-angle-double-up"></i> back to top</a>
+			<a id="top-scroll"><i class="fa fa-angle-double-up scroll-link"></i> back to top</a>
 		</div>
 
 
@@ -387,6 +388,14 @@
 				bottom: 0;
 				margin-bottom: 270px;
 				text-align: left;
+			}
+
+			.scroll-link {
+				cursor: pointer;
+			}
+
+			.scroll-link:hover {
+				opacity: .8;
 			}
 
 			.project-header {
