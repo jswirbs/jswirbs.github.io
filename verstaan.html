@@ -11,20 +11,29 @@
 	<title>Verstaan</title>
 
 </head>
-<body>
+<body onscroll="navbarListen()" onload="navbarListen()">
 
 	<!-- **** NAVBAR **** -->
-	<a href="/" style="z-index: 10; position: absolute; left: 25px; top: 25px;">
+	<a href="" style="position: absolute; left: 25px; top: 25px;">
 		<img src="./test/img/logo.png" width="57" height="68" style="">
 	</a>
 
-	<ul style="z-index: 10; color: white; position: absolute; width: 100%; text-align: right; padding: 40px;">
-		
+	<div id="top" >
+		<a class="anchor" id="home"></a>
+	</div>
+
+
+	<ul id="navbar" style="z-index: 10; color: white; position: absolute; width: 100%; text-align: right; padding: 40px;">
+		<a href="" id="navbar-icon" style="position: absolute; left: -1000px; color: white;">
+			<img src="./test/img/V-white.png" width="32" style="margin-right: 8px;">
+			Verstaan
+		</a>
+
 		<li class="nav-item">
 			<a class="nav-link" id="contact-scroll">Contact</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link">Careers</a>
+			<a class="nav-link">About</a>
 		</li>
 		<li class="nav-item">
 			<a class="nav-link">Industries</a>
@@ -33,16 +42,18 @@
 			<a class="nav-link">Atlas</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link">Home</a> 
+			<a class="nav-link">Home</a>
 		</li>
 	</ul>
+	
+
 
 
 
 	<!-- **** BANNER **** -->
 	<div class="row banner justify-content-center">
 
-		<div class="col-6" style="z-index: 3; color: white; text-align: left; padding: 300px 0 100px 100px;">
+		<div class="col-6" style="color: white; text-align: left; padding: 300px 0 100px 100px;">
 			<h1 style="">Introducing Atlas</h1>
 			<h4 style="font-weight: 200;">A threat forecasting and response platform</h4>
 		</div>
@@ -56,61 +67,9 @@
 
 
 
-	<!-- **** INTRO **** -->
-<!--
+
+	<!--- **** INTRO **** -->
 	<div class="container-fluid" style="padding: 80px 40px;">
-		<a class="anchor" id="home"></a>
-		<div class="row">
-			<div class="col-5" style="text-align: right; padding-right: 30px;">
-				<img src="./test/img/phone-incident.png" width="200px">
-			</div>
-			<div class="col-7" style="text-align: left; padding: 115px 0 0 30px;">
-				<img src="./test/img/atlas-logo.png" width="300px">
-				<h2 style="padding-top: 10px;">
-					Intelligence in the palm of your hand
-				</h2>
-			</div>
-		</div>
-
-		<div class="row" style="margin: 60px 0 100px 0;">
-			<div class="col-4" style="text-align: center; padding-left: 100px;">
-				<img src="./test/img/icon-intel-sharing.png" width="80px">
-				<h2 style="padding: 20px 0;">
-					Intel Sharing
-				</h2>
-
-				<h3>
-					Waze for private security
-				</h3>
-
-			</div>
-			<div class="col-4" style="text-align: center; padding: 0 50px;">
-				<img src="./test/img/icon-forecasting.png" width="80px">
-				<h2 style="padding: 20px 0;">
-					Forecasting
-				</h2>
-
-				<h3>
-					Proactive assessment
-				</h3>
-
-			</div>
-			<div class="col-4" style="text-align: center; padding-right: 100px;">
-				<img src="./test/img/icon-cnc.png" width="80px">
-				<h2 style="padding: 20px 0;">
-					Command & Control
-				</h2>
-				
-				<h3>
-					Increased communication
-				</h3>
-
-			</div>
-		</div>
-	</div>
--->
-	<div class="container-fluid" style="padding: 80px 40px;">
-		<a class="anchor" id="home"></a>
 		<div class="row">
 			<div class="col-4" style="text-align: right; padding-right: 40px;">
 				<img src="./test/img/phone-incident.png" width="200px">
@@ -162,7 +121,7 @@
 		</div>
 
 		<div style="text-align: center; margin-top: 60px;">
-			<button class="btn btn-lg btn-outline-dark" onclick="alert('how about you go blow yourself');">How it works</button>
+			<button class="btn btn-lg btn-outline-dark">How it works</button>
 		</div>
 		
 	</div>
@@ -237,7 +196,8 @@
 	<div class="container-fluid">
 		<a class="anchor" id="contact"></a>
 		<div class="row" style="padding: 80px 60px;">
-			<div class="col-8" style="padding-right: 60px;">
+			<div class="col-2"></div>
+			<div class="col-8">
 				<h2 style="margin-bottom: 15px;">
 					Contact us to schedule a demo.
 				</h2>
@@ -280,26 +240,10 @@
 
 				</form>
 			</div>
-			<div class="col-1"></div>
-			<div class="col-3" style="color: white; text-align: center; margin-top: 45px; padding: 40px 10px; height: 100%; background-color: #444; border-radius: 4px;">
-				<h2>
-					Verstaan
-				</h2>
-				<div>
-					75 Arlington Street<br>
-					Boston, MA 02116
-				</div>
-				<br>
-				<div>
-					<a class="mailto-link" href="mailto: info@verstaan.com">info@verstaan.com</a>
-				</div>
-				<div>
-					(888) 731-5256
-				</div>
-				
-			</div>
+			<div class="col-2"></div>
 		</div>
 	</div>
+
 
 
 
@@ -309,7 +253,7 @@
 			&copy; 2019 Verstaan
 		</div>
 		<div class="col-4" style="text-align: center;">
-			<a class="top-link" id="top-scroll" href="#home">^ back to top</a>
+			<a class="top-link" id="top-scroll" href="">^ back to top</a>
 		</div>
 	</div>
 
@@ -367,15 +311,51 @@
 
 		document.getElementById('top-scroll').addEventListener('click', smoothScroll.bind(null, '#home', 1000))
 		document.getElementById('contact-scroll').addEventListener('click', smoothScroll.bind(null, '#contact', 1000))
-
-
-
-		
 		
 
 	</script>
 
 	<script type="text/javascript">
+		function checkPositioning(el, threshold) {
+			threshold = threshold || 0;
+
+			var rect = el.getBoundingClientRect();
+			var viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+			var above = rect.bottom + threshold < 0;
+			//var below = rect.top - viewHeight + threshold >= 0;
+
+			return above; // || !below;
+		}
+
+		function navbarListen() {
+			var threshold = 40 - 14;
+			var highlight = '#ee3322';
+
+			if (checkPositioning(document.getElementById('top'), threshold)) {
+				document.getElementById('navbar').style.position = 'fixed';
+				document.getElementById('navbar').style.backgroundColor = '#444';
+				document.getElementById('navbar').style.opacity = '0.95';
+				document.getElementById('navbar').style.padding = '14px 40px';
+				document.getElementById('navbar').style.boxShadow = '0 4px 8px 0 rgba(0, 0, 0, 0.2)';
+
+				document.getElementById('navbar-icon').style.left = '25px';
+
+			} else {
+				document.getElementById('navbar').style.position = 'absolute';
+				document.getElementById('navbar').style.padding = '40px';
+				document.getElementById('navbar').style.zIndex = '1';
+
+				document.getElementById('navbar').style.backgroundColor = null;
+				document.getElementById('navbar').style.boxShadow = null;
+
+				document.getElementById('navbar-icon').style.left = '-1000px';
+
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+		// add listener to contact form that validates input format
 		(function() {
   			'use strict';
   			window.addEventListener('load', function() {
@@ -481,7 +461,7 @@
 		}
 
 		.footer {
-			background-color: #1c1c1c; 
+			background-color: #444; 
 			color: #bbb;
 			padding: 20px;
 		}
