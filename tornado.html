@@ -4,7 +4,6 @@
 
 		<title>JUSTIN SWIRBUL</title>
 		<meta charset="utf-8">
-  		<meta name="description" content="JUSTIN SWIRBUL >> UPENN // COMPUTER SCIENCE // DESIGN // ENTREPRENEURSHIP // SKI TEAM">
 		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 		<link rel="shortcut icon" type="image/x-icon" href="./img/logo-black-on-white.png">
 		<link rel="icon" type="image/ico" href="./img/logo-black-on-white.png">
@@ -14,7 +13,6 @@
 	<body>
 
 		<script src="js/three.min.js"></script>
-		<script src="js/cubeData.js"></script>
 
 		<script>
 
@@ -25,9 +23,6 @@
 
 			var frustumSize = 400;
 			var baseColor = 0xffffff;
-
-			// triggers block explosion when going to projects page
-			var explode = false;
 
 
 			init();
@@ -45,15 +40,14 @@
 				camera = new THREE.OrthographicCamera(frustumSize * aspect / - 2, frustumSize * aspect / 2, frustumSize / 2, frustumSize / - 2, 1, 1000);
 
 				scene = new THREE.Scene();
-				scene.background = new THREE.Color(0xd0d0d0);
+				scene.background = new THREE.Color(0xb0b0b0);
 
 				var light = new THREE.DirectionalLight(0xffffff, 1);
 				light.position.set(1, 1, 1).normalize();
 				scene.add(light);
 				
 
-				// function from cubeData.js that adds cubes to scene
-				buildCubeData(scene, 20, baseColor);
+				buildTornadoData(scene, 20, baseColor);
 
 
 				renderer = new THREE.WebGLRenderer();
@@ -97,7 +91,7 @@
 
 				// theta increases with time, slowing down slightly at intervals of 90 degrees (when cubes align).
 				// theta is used to rotate the camera around the model
-				theta += .06 + Math.min(theta % 90, 90 - theta % 90) / 180;
+				theta += .02 + Math.min(theta % 90, 90 - theta % 90) / 180;
 
 				camera.position.x = 500 * Math.sin(THREE.Math.degToRad(theta));
 				camera.position.y = 350 * Math.sin(THREE.Math.degToRad(theta * 2));
@@ -106,58 +100,42 @@
 
 				camera.updateMatrixWorld();
 
-
-				// Cubes fly out from center (triggered when going to projects page)
-				if (explode) {
-					for (var i = 0; i < scene.children.length; i++) {
-						if (scene.children[i].position.x < 5 && scene.children[i].position.x >= 0) {
-							scene.children[i].position.x += .4;
-						} else if (scene.children[i].position.x > -5 && scene.children[i].position.x <= 0) {
-							scene.children[i].position.x -= .4;
-						}
-						if (scene.children[i].position.y < 5 && scene.children[i].position.y >= 0) {
-							scene.children[i].position.y += .4;
-						} else if (scene.children[i].position.y > -5 && scene.children[i].position.y <= 0) {
-							scene.children[i].position.y -= .4;
-						}
-						if (scene.children[i].position.z < 5 && scene.children[i].position.z >= 0) {
-							scene.children[i].position.z += .4;
-						} else if (scene.children[i].position.z > -5 && scene.children[i].position.z <= 0) {
-							scene.children[i].position.z -= .4;
-						}
-
-						scene.children[i].position.x *= 1.04;
-						scene.children[i].position.y *= 1.04;
-						scene.children[i].position.z *= 1.04;
-					}
-				}
-
-
 				renderer.render(scene, camera);
 
 			}
 
 
-			function openProjects() {
-				explode = true;
+			function createImage() {
+			  var canvas = document.createElement( 'canvas' );
+			  canvas.width = 256;
+			  canvas.height = 256;
+			  var context = canvas.getContext( '2d' );
+			  context.fillStyle = 'rgb(' + Math.floor( Math.random() * 256 ) + ',' + Math.floor( Math.random() * 256 ) + ',' + Math.floor( Math.random() * 256 ) + ')';
+			  console.log(context.fillStyle);
+			  context.fillRect( 0, 0, 256, 256 );
+			  return canvas;
+			}
 
-				setTimeout(function() {
+			function buildTornadoData(scene, cubeSize, baseColor) {
 
-					document.body.style.animation = 'fadeout 2s';
-		       		document.body.style.WebkitAnimation = 'fadeout 2s';
+				let addBox = function(width, x, y, z, isWireframe) {
+					let texture = new THREE.CanvasTexture( createImage() );
+			  	let material = new THREE.MeshBasicMaterial( { map: texture, wireframe: (isWireframe === undefined ? true : isWireframe) } );
 
-		       		setTimeout(function() {
+					let geometry = new THREE.BoxBufferGeometry(cubeSize * width, cubeSize * width, cubeSize);
 
-		       			document.getElementById('container').style.backgroundColor = 'white';
-						document.getElementById('content').style.visibility = 'hidden';
-		       			document.getElementById('canvas').style.visibility = 'hidden';
+					let o = new THREE.Mesh(geometry, material);
+					o.position.set(x * cubeSize, y * cubeSize, z * cubeSize);
+					scene.add(o);
+				}
 
-		       			window.location.href = "/projects"
-
-		       		}, 1900);
-
-				}, 0);
-
+				addBox(1, -.5, 0, 6, false);
+				addBox(2, -1, -.5, 4);
+				addBox(3, -.5, -1, 2);
+				addBox(4, 0, -.5, 0);
+				addBox(5, -.5, 0, -2);
+				addBox(6, -1, -.5, -4);
+				addBox(7, -.5, -1, -6);
 			}
 
 		</script>
@@ -165,34 +143,6 @@
 
 
 		<div class="container" id="container">
-
-			<div class="content" id="content">
-				
-				<div>
-					<img src="./img/logo-white-on-trans.png" width="80px" height="80px">
-				</div>
-
-				<div class="name">
-					JUSTIN SWIRBUL
-				</div>
-
-				<div class="personal-info">
-					UPENN &nbsp;//&nbsp; COMPUTER SCIENCE &nbsp;//&nbsp; DESIGN
-				</div>
-
-				<div class="personal-info">
-					ENTREPRENEURSHIP &nbsp;//&nbsp; SKI TEAM
-				</div>
-
-				<div>
-					<a class="icon" href="./documents/resume.pdf" target="_blank"><i class="fa fa-file-text"><span class="icon-text">resume</span></i></a>
-				  	<a class="icon" style="cursor: pointer;" onclick="openProjects()"><i class="fa fa-code"><span class="icon-text">projects</span></i></a>
-					<a class="icon" href="mailto:swirbulj@seas.upenn.edu"><i class="fa fa-envelope"><span class="icon-text">swirbulj@seas.upenn.edu</span></i></a>
-					<a class="icon" href="https://www.linkedin.com/in/justin-swirbul/" target="_blank"><i class="fa fa-linkedin"><span class="icon-text">linkedin</span></i></a>
-					<a class="icon" href="https://github.com/jswirbs" target="_blank"><i class="fa fa-github"><span class="icon-text">github</span></i></a>
-				</div>
-				
-			</div>
 
 		</div>
 
@@ -246,7 +196,7 @@
 				height: 100%;
 				top: 0;
 				left: 0;
-				background-color: rgba(0, 0, 0, .4);
+				/* background-color: rgba(0, 0, 0, .4); */
 			}
 
 			.content {

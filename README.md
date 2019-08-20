@@ -1,3 +1,5 @@
-# Personal Website
+## a nice little personal webasite and playground for creative coding
 
-My personal website I developed with HTML, CSS, JavaScript, three.js
+https://justinswirbul.com
+
+three.js is neat
