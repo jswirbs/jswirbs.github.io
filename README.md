@@ -1,4 +1,4 @@
-## a nice little personal webasite and playground for creative coding
+## a nice little personal website and playground for creative coding
 
 https://justinswirbul.com
 
