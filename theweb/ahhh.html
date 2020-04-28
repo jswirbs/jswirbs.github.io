@@ -5,7 +5,7 @@
 </head>
 
 <body onload="extend()">
-  <a id="a" href="/theweb/dissolve" onmouseover="mouseOverA()" onmouseout="mouseOutA()">a</a><span id="content">h</span>
+  <a id="a" href="/theweb/dissolve" onmouseover="mouseOverA()" onmouseout="mouseOutA()">a</a><span id="content" onmouseover="mouseOverA()" onmouseout="mouseOutA()">h</span>
 </body>
 
 <script type="text/javascript">
@@ -20,22 +20,22 @@
     
     length += 1;
 
-    let timeout = 1024;
+    let timeout = 512;
     
     if (length > 256) {
-      timeout = 8;
+      timeout = 4;
     } else if (length > 128) {
-      timeout = 16;
+      timeout = 8;
     } else if (length > 64) {
-      timeout = 32;
+      timeout = 16;
     } else if (length > 32) {
-      timeout = 64;
+      timeout = 32;
     } else if (length > 16) {
-      timeout = 128;
+      timeout = 64;
     } else if (length > 8) {
-      timeout = 256;
+      timeout = 128;
     } else if (length > 4) {
-      timeout = 512;
+      timeout = 256;
     }
 
     setTimeout(extend, timeout);
