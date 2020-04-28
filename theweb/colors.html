@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onload="bodyLoaded()">
+  <div id="container">
+    
+  </div>
+</body>
+
+<script type="text/javascript">
+  let colorCounter = 0; 
+  let wordCount = 0;
+  let magicWordIndex = 24;
+
+  function updateBodyColor() {
+    colorCounter += .1;
+
+    let r = Math.sin(colorCounter + 0) * 127 + 128;
+    let g = Math.sin(colorCounter + 2) * 127 + 128;
+    let b = Math.sin(colorCounter + 4) * 127 + 128;
+
+    document.body.style.backgroundColor = "rgb(" + r + ", " + g + ", " + b + ")";
+
+    r = Math.sin(colorCounter + 1) * 127 + 128;
+    g = Math.sin(colorCounter + 3) * 127 + 128;
+    b = Math.sin(colorCounter + 5) * 127 + 128;
+
+    document.body.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+
+    setTimeout(updateBodyColor, 20);
+  }
+
+  function flickerWords() {
+    for (let i = 0; i < wordCount; i++) {
+      let r;
+      let g;
+      let b;
+
+      if (i == magicWordIndex) {
+        r = Math.sin(colorCounter + i + 1) * 127 + 128;
+        g = Math.sin(colorCounter + i + 3) * 127 + 128;
+        b = Math.sin(colorCounter + i + 5) * 127 + 128;
+      } else {
+        r = Math.sin(colorCounter + i) * 127 + 128;
+        g = Math.sin(colorCounter + i) * 127 + 128;
+        b = Math.sin(colorCounter + i) * 127 + 128;
+      }
+
+      document.getElementById("span" + i).style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+      
+    }
+
+    setTimeout(flickerWords, 10);
+  }
+
+  function dissipate() {
+    setTimeout(() => {
+      window.location.href = "/theweb/dissolve";
+    }, 3000);
+
+    flickerWords();
+  }
+
+  function bodyLoaded() {
+    let text = "L̸͇̒͘ó̵̧͋r̷͍̗͝ȅ̷̥͜͝m̶̪̰͌ ̴̠̓i̴͕̘̒͝p̴͕͗ṡ̶̼̃u̵̝̰̎̎m̴̼̪͛ ̴̯̔̈́͜d̵̮͊ͅo̴͒́ͅl̸̩̽̒õ̴̫̻͒r̸̭͐ ̴̧̞̽̚s̴̡͖̍̋i̷̝̗̓̈t̷̯̅̀ ̸̺̥̋a̶̲̿m̴̬̿ė̵͖̭͑t̴͍͘,̶̖̌̇ ̶̪̂c̸̜͕̓ȏ̴̜ǹ̶̨s̷͉̘̎ë̷̩́c̴̖̜͌t̴̲͈̄e̸̜͉͂t̴͖̔̀u̵͕̓͂r̸̨̡̓ ̷̮̣̂̔a̸͈̗̓ḑ̶̓i̴̘͗p̵̯̃ͅi̴̖̓͠s̵̞̓̃c̵͚̑͠i̷̙͛͑ń̷̘͙͝g̶̘̰͒ ̶͉̑͝ě̵̦͓̌ḷ̵̀į̸̛̦t̶͔̄,̸̛͕̺͝ ̵̩̕s̵̞̏͛e̴͙̯̓d̸̨̠̄̄ ̷͉̾d̵͉͑o̴̤̓͆ ̷̨̍͆é̵̥̬i̸̝͇̾͌ű̵̢̥s̶̰̙͐̅m̶̻̏̉õ̶̘d̴̖̀̉ ̷̟͛͠t̷̝̔̇e̴̻̊m̵̞̋̊p̵̬͔̈́o̸̜͍̔͂r̶̲̐ ̸̪̹͊̚ĭ̵̦͍͠n̸̟̩͐̐c̶͖̬͗i̴̦͆̚d̸͉̅̕i̴̓ͅd̶̩͝u̸̩͋n̸̝̈ṱ̶̳̅ ̶̜͖͑ȕ̶̝̉t̴̘̘̐ ̷̼̎́ḷ̶̖͘a̴̲͈͘ḃ̷͕o̷͙̜̐̉ř̵͕ë̶̻̣ ̴̥̂è̸̬̿͜ṱ̵̲̒̈́ ̵̲͈̎d̵͓͠o̴̠̾l̴̗͂o̶͙̱̕r̵͉̈́ẹ̶̈́̄ ̶͔̄̽m̴̙̽à̷̬̋g̴̘͍̈́n̶̜͊̆ả̵̤̾ ̶̙̿ͅa̵̜͗̕l̷̻̅̕į̷̠͑̾q̵̥͛͘ú̷͓̙̈́a̸̼̰͐͆.̶̣̚ ̸̠͌U̸͕̒ṭ̷͗̕ ̵̳͍̊é̵̜̙ṅ̶̛̰̮ḯ̸̦̘̏m̸̜̫̈́̎ ̸̩̄͘a̵͚̔́d̷̼̿̅ ̴̢̟̓m̸̡̀̑í̶̳͘n̵͚̣̓î̸̛̫m̴̘̟̀̚ ̶̟̐v̸̳̰̇͝ȩ̸̰̔n̷̪̾̇ḯ̵͇a̶͉͂m̵̹̂̊,̷̙̞̅ ̷͔͉̕(̸̰̇͒C̵̘̍Ỏ̶̤̾N̵͚̞͂̓Ť̵͎̈́I̴̫͋N̶̬̦͋Ṳ̴͠E̷̱͚̊?̷͚͈͂͘)̸͚͗ ̷̰̱͠q̶̜̬̀u̸͚̤͐̾ĭ̷̥s̵̟̟̿̄ ̸̯̀͝n̸̘̔͂o̶̼̥̒s̵̯̅t̴͓̆͗r̶̥̜̈́ȗ̸͜d̶͚̟̃ ̵͚̀e̵̘͂̈́x̵͖̋e̸̲͂̚r̵̙̈̉c̴̱̗͂̐i̴̫̇ṭ̸̮̓͐a̷̟̅ţ̸̎̊i̸̱̿ö̸͈̒n̸̗̞̓ ̵͕̿͐ͅů̶̹͋l̵̼̘̕l̴̛͖͙̎a̷͂̀͜m̶̡͐̓ͅc̴̢̲̄͝ỏ̸̡̀ ̴͉̄ļ̸̫̒́ä̷̹̳́b̷͎͌̊ô̵̮̓r̵̻͉̈́i̵͈̋̈s̴̻̏̚ ̷̝̊̔ņ̴̃̓i̴̩̊s̸̡̳͋̐i̴̧̝͋ ̶̮̂́u̴̡̽t̵̟͂ ̸̝́a̸̜̱͠ļ̶͋̚ͅi̸̱̊q̶̳̉ͅu̵͔̓i̵͔͕͝͠p̴̪̅͝ ̵͕͈̓e̷̬̝͐x̴̼̋ ̷̱̺̍̀ě̶̪ä̸͖́ͅ ̵̗̻̋̒c̵̰̈́͜o̵̲̒m̶̱̓̅m̶̨̞̅o̵̯̿d̷̘̈́ơ̴͚̦ ̴̪̫̀c̴̻̦̿͝o̷̥͂n̵͙̿s̴͈͗͑é̷̯q̵͇̈́͂ù̴̦̈́a̸̜͂͒t̸͔̽.̶̼̽ ̴͈͋͝Ḑ̴͇͗̒ǘ̵̠̪̔ī̷͉͉̉s̷̱͎̐ ̷̠̈́ą̸̾u̴̪̝̒t̴̝̹̿͐ḛ̷͍͝ ̷͍̾͠i̶̞̅͐ṛ̶̽ư̸̯̊r̴͕͉̃̃e̵̗̟̊ ̶̰͎̍̇d̸͇̖͠o̸̠̍̑ļ̶̘͆̽o̵͍̣͑ṟ̸̢͊̍ ̴̪͌̀i̴͙̽͊n̶͙̒̏ ̸̫̈́r̶̮̎̋e̴̩̔p̴̤̎̔ŗ̶̍ë̷̫h̸͎͓͝ḙ̴͚̏̈́n̴̝͆ḓ̶̨̀̒e̷̢͈̽͝r̴̜͙̈́i̵̪̓t̴̻̠̑ ̴͖̫̅ĩ̷̭͉͘ṋ̴̔ ̸͔̑v̷̖͠͝ö̴͍́̃ͅl̸̟̃ǘ̵̧̎p̵̺̏̀t̶̡͖͋a̵͖̽t̵͈̥̿e̴̝͝͝ ̶̘͛̽ṽ̴̡͚̎ḛ̵͍͒l̴̪͌i̵͓͛t̶͙̯͝ ̷̥͛̋e̵̙̅s̷̛͓̐s̴̩̋̚͜ȅ̶͉͚̍ ̷̤̹̌c̸͓̘̊ȉ̵̧̅l̷̹͝l̶͔̔̔u̶̦̰͑m̶̛̩̈́ ̷͖͛ď̸͕̐o̵̫̾̕l̸͉̈́o̶̤̗̐̕ŕ̸͚̤̓e̸̠͆͝ ̴̘̠͒e̸̱̅u̶̜͑̋ ̵̧͓̂f̶̖̬̊̿ǘ̴͙g̵̰̲̒i̶̙̓a̸̘͊̿t̵̨̜̽͘ ̶̖̳̄̏n̴̼͘ù̵̞l̶̮̍̆l̴̝̒å̷̮̿ ̵͎̄͆p̸̫̏a̸̲̠͂r̸̜̼̽̒ḭ̴̓͛a̸̯̜͐t̸̘̭͛̋ú̸͉͇r̵͎͠.̴̝̲̃̉";
+    let content = "";
+    text.split(" ").forEach((word, i) => {
+      if (i == magicWordIndex) {
+        content += "<span id='span" + i.toString() + "' onclick='dissipate()'>" + word + "</span>\n";
+      } else {
+        content += "<span id='span" + i.toString() + "'>" + word + "</span>\n";
+      }
+      wordCount += 1;
+    });
+    document.getElementById("container").innerHTML = content;
+
+    updateBodyColor();
+  }
+</script>
+
+<style type="text/css">
+  body {
+    width: 100vw;
+    text-align: center;
+    padding: 200px 0;
+    margin: 0;
+  }
+  span:hover {
+    color: white;
+    cursor: pointer;
+  }
+  #container {
+    display: inline-block;
+    width: 300px;
+  }
+</style>
+
+</html>
