@@ -12,16 +12,20 @@
   function bodyLoaded() {
     let target; 
 
-    let x = Math.floor(Math.random() * 5);
+    let x = Math.floor(Math.random() * 7);
 
     if (x == 0) {
       target = "/theweb/ahhh";
     } else if (x == 1) {
-      target = "/theweb/dissolve";
+      target = "/theweb/colors";
     } else if (x == 2) {
-      target = "/theweb/keyboard";
+      target = "/theweb/dissolve";
     } else if (x == 3) {
+      target = "/theweb/keyboard";
+    } else if (x == 4) {
       target = "/theweb/pointer";
+    } else if (x == 5) {
+      target = "/theweb/pointer2";
     } else {
       target = "/theweb/portal";
     } 
