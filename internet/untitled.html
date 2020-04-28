@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TEST</title>
+</head>
+
+<body onmousemove="followMouse(event)">
+  <span id="one">MY PARENTS ARE TRYING TO SLEEP</span>
+  <span id="two">careful, it's art.</span>
+
+  <img id="corner" src="corner.png"/>
+
+  <img id="spotlight" src="spotlight.png"/>
+</body>
+
+<script type="text/javascript">
+  let spotlightSize = 5940; 
+
+  function followMouse(e) {
+    let spotlight = document.getElementById("spotlight");
+    spotlight.style.left = (e.clientX - spotlightSize/2).toString() + "px";
+    spotlight.style.top = (e.clientY - spotlightSize/2).toString() + "px";    
+    //alert(e.clientY.toString() + "px");
+  }
+</script>
+
+<style type="text/css">
+  body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    background-color: #121C2B;
+  }
+  span {
+    color: yellow;
+    position: fixed;
+  }
+
+  #one {
+    top: 100px;
+    left: 200px;
+  }
+  #two {
+    top: 360px;
+    left: 600px;
+  }
+  #corner {
+    position: fixed;
+    bottom: 0px;
+    width: 300px;
+    hieght: 300px;
+  }
+
+  #spotlight {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+</style>
+
+</html>

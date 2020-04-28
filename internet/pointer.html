@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onmousemove="mouseMoved(event)" onload="bodyLoaded()">
+  <a class="navitem" style="left: 2px" id="home" href="">Home</a>
+  <a class="navitem" style="left: 55px" id="about" href="#" onclick="aboutClicked()">About</a>
+  <a class="navitem" style="left: 110px" id="help" href="/help">Help</a>
+
+  <img src="pointer.png" width="24" class="pointer" id="pointer0">
+  <img src="pointer.png" width="24" class="pointer" id="pointer1">
+  <img src="pointer.png" width="24" class="pointer" id="pointer2">
+  <img src="pointer.png" width="24" class="pointer" id="pointer3">
+  <img src="pointer.png" width="24" class="pointer" id="pointer4">
+  <img src="pointer.png" width="24" class="pointer" id="pointer5">
+  <img src="pointer.png" width="24" class="pointer" id="pointer6">
+  <img src="pointer.png" width="24" class="pointer" id="pointer7">
+  <img src="pointer.png" width="24" class="pointer" id="pointer8">
+  <img src="pointer.png" width="24" class="pointer" id="pointer9">
+  <img src="pointer.png" width="24" class="pointer" id="pointer10">
+  <img src="pointer.png" width="24" class="pointer" id="pointer11">
+  <img src="pointer.png" width="24" class="pointer" id="pointer12">
+  <img src="pointer.png" width="24" class="pointer" id="pointer13">
+  <img src="pointer.png" width="24" class="pointer" id="pointer14">
+  <img src="pointer.png" width="24" class="pointer" id="pointer15">
+  <img src="pointer.png" width="24" class="pointer" id="pointer16">
+  <img src="pointer.png" width="24" class="pointer" id="pointer17">
+  <img src="pointer.png" width="24" class="pointer" id="pointer18">
+  <img src="pointer.png" width="24" class="pointer" id="pointer19">
+  <img src="pointer.png" width="24" class="pointer" id="pointer20">
+  <img src="pointer.png" width="24" class="pointer" id="pointer21">
+  <img src="pointer.png" width="24" class="pointer" id="pointer22">
+  <img src="pointer.png" width="24" class="pointer" id="pointer23">
+  <img src="pointer.png" width="24" class="pointer" id="pointer24">
+  <img src="pointer.png" width="24" class="pointer" id="pointer25">
+  <img src="pointer.png" width="24" class="pointer" id="pointer26">
+  <img src="pointer.png" width="24" class="pointer" id="pointer27">
+  <img src="pointer.png" width="24" class="pointer" id="pointer28">
+  <img src="pointer.png" width="24" class="pointer" id="pointer29">
+  <img src="pointer.png" width="24" class="pointer" id="pointer30">
+  <img src="pointer.png" width="24" class="pointer" id="pointer31">
+</body>
+
+<script type="text/javascript">
+  let numPointers = 32;
+
+  function pxToInt(px) {
+    return Number(px.split("px")[0]);
+  }
+
+  function mouseMoved(e) {
+    for (let i = 0; i < numPointers; i++) {
+      let element = document.getElementById("pointer" + i.toString());
+
+      let x = pxToInt(element.style.left) + e.movementX * ((i + 1) % 17) * Math.pow(-1, (i*3) % 5);
+      let y = pxToInt(element.style.top) + e.movementY * ((i + 1) % 13) * Math.pow(-1, i);
+
+      while (x < -12) {
+        x += window.innerWidth;
+      }
+      while (y < 12) {
+        y += window.innerHeight;
+      }
+      x %= window.innerWidth;
+      y %= window.innerHeight;
+
+      element.style.top = y.toString() + "px";
+      element.style.left = x.toString() + "px";
+    }
+    for (let i = 0; i < 3; i++) {
+      let element;
+      if (i == 1) {
+        element = document.getElementById("home");
+      } else if (i == 2) {
+        element = document.getElementById("help");
+      } else {
+        element = document.getElementById("about");
+      }
+
+      let x = pxToInt(element.style.left) + e.movementX * ((i + 1) % 17) * Math.pow(-1, (i*3) % 5);
+      let y = pxToInt(element.style.top) + e.movementY * ((i + 1) % 13) * Math.pow(-1, i);
+
+      while (x < -12) {
+        x += window.innerWidth;
+      }
+      while (y < 12) {
+        y += window.innerHeight;
+      }
+      x %= window.innerWidth;
+      y %= window.innerHeight;
+
+      element.style.top = y.toString() + "px";
+      element.style.left = x.toString() + "px";
+    }
+  }
+
+  function aboutClicked() {
+    let element = document.getElementById("about");
+    let x = (pxToInt(element.style.left) + 50) % window.innerWidth;
+    element.style.left = x.toString() + "px";
+  }
+
+  function bodyLoaded() {
+    for (let i = 0; i < numPointers; i++) {
+      let element = document.getElementById("pointer" + i.toString());
+
+      let x = Math.floor(Math.random() * window.innerWidth);
+      let y = Math.floor(Math.random() * window.innerHeight);
+
+      element.style.top = y.toString() + "px";
+      element.style.left = x.toString() + "px";
+    }
+  }
+</script>
+
+<style type="text/css">
+  body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+  }
+  .navitem {
+    position: fixed;
+    z-index: 2;
+    top: 2px;
+    padding: 6px;
+  }
+  .pointer {
+    position: fixed;
+  }
+</style>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onload="bodyLoaded()">
+  <div id="container">
+    
+  </div>
+</body>
+
+<script type="text/javascript">
+  let numVisible = 0;
+
+  function spanMousedOver(el) {
+    el.style.visibility = "hidden";
+    numVisible -= 1;
+  }
+
+  function checkVisibility() {
+    if (numVisible == 0) {
+      window.location.href = "/dissolve"
+    } else {
+      setTimeout(checkVisibility, 500);
+    }
+  }
+
+  function bodyLoaded() {
+    let text = "But I am considering energy here. Ignoring reversible computation for the moment, computations dissipate energy (some disagree with this point). There is some uppper limit on how many basic computations could ever be done with the amount of free energy in the universe.";
+    let content = "";
+    text.split(" ").forEach((word, i) => {
+      content += "<span id='span" + i.toString() + "' onmouseover='spanMousedOver(this)'>" + word + "</span>\n";
+      numVisible += 1;
+    });
+    document.getElementById("container").innerHTML = content;
+
+    setTimeout(checkVisibility, 3000);
+  }
+</script>
+
+<style type="text/css">
+  body {
+    width: 100vw;
+    text-align: center;
+    padding: 200px 0;
+    margin: 0;
+  }
+  #container {
+    display: inline-block;
+    width: 300px;
+  }
+</style>
+
+</html>

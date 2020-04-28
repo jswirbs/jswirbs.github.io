@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onload="extend()">
+  <a id="a" href="/ahhh" onmouseover="mouseOverA()" onmouseout="mouseOutA()">a</a><span id="content">h</span>
+</body>
+
+<script type="text/javascript">
+  let length = 1; 
+
+  function extend() {
+    let content = "";
+    for (let i = 0; i < length; i++) {
+      content += "h";
+    }
+    document.getElementById("content").innerHTML = content;
+    
+    length += 1;
+
+    let timeout = 1024;
+    
+    if (length > 256) {
+      timeout = 8;
+    } else if (length > 128) {
+      timeout = 16;
+    } else if (length > 64) {
+      timeout = 32;
+    } else if (length > 32) {
+      timeout = 64;
+    } else if (length > 16) {
+      timeout = 128;
+    } else if (length > 8) {
+      timeout = 256;
+    } else if (length > 4) {
+      timeout = 512;
+    }
+
+    setTimeout(extend, timeout);
+  }
+
+  function mouseOverA() {
+    document.getElementById("a").innerHTML = "o";
+  }
+
+  function mouseOutA() {
+    document.getElementById("a").innerHTML = "a";
+  }
+</script>
+
+<style type="text/css">
+  #a {
+    color: black!important;
+    text-decoration: none!important;
+  }
+  #a:hover {
+    cursor: pointer;
+  }
+</style>
+
+</html>
