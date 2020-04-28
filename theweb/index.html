@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onload="bodyLoaded()">
+
+</body>
+
+<script type="text/javascript">
+  function bodyLoaded() {
+    let target; 
+
+    let x = Math.floor(Math.random() * 5);
+
+    if (x == 0) {
+      target = "/theweb/ahhh";
+    } else if (x == 1) {
+      target = "/theweb/dissolve";
+    } else if (x == 2) {
+      target = "/theweb/keyboard";
+    } else if (x == 3) {
+      target = "/theweb/pointer";
+    } else {
+      target = "/theweb/portal";
+    } 
+
+    window.location.href = target;
+  }
+</script>
+
+</html>
