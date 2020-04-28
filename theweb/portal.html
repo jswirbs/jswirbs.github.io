@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onmousemove="followMouse(event)" onclick="mouseClicked(event)">
+  <span id="text">oh look, a portal.</span>
+
+  <img id="portal" src="portal.png"/>
+</body>
+
+<script type="text/javascript">
+  let portalSize = 5940; 
+
+  function followMouse(e) {
+    let portal = document.getElementById("portal");
+    portal.style.left = (e.clientX - portalSize/2).toString() + "px";
+    portal.style.top = (e.clientY - portalSize/2).toString() + "px";
+
+    if ((e.x < window.innerWidth - 100) && (e.x > window.innerWidth - 204)) {
+      if ((e.y > 100) && (e.y < 116)) {
+        document.body.style.cursor = "pointer";
+      } else {
+        document.body.style.cursor = "default";
+      }
+    } else {
+      document.body.style.cursor = "default";
+    }
+  }
+
+  function mouseClicked(e) {
+    if ((e.x < window.innerWidth - 100) && (e.x > window.innerWidth - 204)) {
+      if ((e.y > 100) && (e.y < 116)) {
+        window.location.href = "/theweb/ahhh";
+      }  
+    }
+  }
+</script>
+
+<style type="text/css">
+  body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden;
+    background-color: #121C2B;
+  }
+  span {
+    color: yellow;
+    position: fixed;
+  }
+
+  #text {
+    top: 100px;
+    right: 100px;
+  }
+  #portal {
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+</style>
+
+</html>

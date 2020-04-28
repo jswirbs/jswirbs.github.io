@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+</head>
+
+<body onload="extend()">
+  <div class="row">
+    <span class="key" onclick="clicked()">Q</span>
+    <span class="key" onclick="clicked()">W</span>
+    <span class="key yes" onclick="clicked('e')">E</span>
+    <span class="key" onclick="clicked()">R</span>
+    <span class="key" onclick="clicked()">T</span>
+    <span class="key yes" onclick="clicked('y')">Y</span>
+    <span class="key" onclick="clicked()">U</span>
+    <span class="key" onclick="clicked()">I</span>
+    <span class="key" onclick="clicked()">O</span>
+    <span class="key" onclick="clicked()">P</span>
+  </div>
+  <div class="row">
+    <span class="key" onclick="clicked()">A</span>
+    <span class="key yes" onclick="clicked('s')">S</span>
+    <span class="key" onclick="clicked()">D</span>
+    <span class="key" onclick="clicked()">F</span>
+    <span class="key" onclick="clicked()">G</span>
+    <span class="key" onclick="clicked()">H</span>
+    <span class="key" onclick="clicked()">J</span>
+    <span class="key" onclick="clicked()">K</span>
+    <span class="key" onclick="clicked()">L</span>
+  </div>
+  <div class="row">
+    <span class="key" onclick="clicked()">Z</span>
+    <span class="key" onclick="clicked()">X</span>
+    <span class="key" onclick="clicked()">C</span>
+    <span class="key" onclick="clicked()">V</span>
+    <span class="key" onclick="clicked()">B</span>
+    <span class="key" onclick="clicked()">N</span>
+    <span class="key" onclick="clicked()">M</span>
+  </div>
+  <div class="row">
+    <span class="key spacekey"> </span>
+  </div>
+</body>
+
+<script type="text/javascript">
+  let stage = 0;
+
+  function clicked(x) {
+    if (x == 'y') {
+      stage = 1;
+    } else if (x == 'e' && stage == 1) {
+      stage = 2;
+    } else if (x == 's' && stage == 2) {
+      window.location.href = "/theweb/pointer";
+    } else {
+      stage = 0;
+    }
+  }
+</script>
+
+<style type="text/css">
+  body {
+    background-color: #ccc;
+    margin: 60px 0;
+  }
+  .row {
+    width: 100vw;
+    text-align: center;
+  }
+  .key {
+    display: inline-block;
+    width: 9%;
+    margin-top: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+
+    color: white;
+    background-color: #444;
+  }
+  .key:hover {
+    background-color: #222;
+    cursor: pointer;
+  }
+  .key:active {
+    background-color: #000;
+    cursor: pointer;
+  }
+  .yes:active {
+    background-color: #040;
+    color: #bfb;
+    cursor: pointer;
+  }
+  .spacekey {
+    width: 33%!important;
+    border-radius: 10px;
+    height: 16px;
+  }
+</style>
+
+</html>
