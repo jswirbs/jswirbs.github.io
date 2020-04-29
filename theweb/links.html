@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
+</head>
+
+<body onload="bodyLoaded()">
+  <div id="container">
+    
+  </div>
+</body>
+
+<script type="text/javascript">
+  let numLinks = 1500;
+  let correctLinkIndex = 420;
+
+  function mouseOverLink(el, i) {
+    // base color, will be scaled according to index
+    let r = 0;
+    let g = 127;
+    let b = 255; 
+
+    let diff = Math.abs(correctLinkIndex - i);
+    let scale = Math.floor(2 * (127 - diff));
+    if (scale < 0) {
+      scale = 0;
+    }
+
+    r += scale
+    g -= scale / 2;
+    b -= scale;
+
+    if (i === correctLinkIndex) {
+      el.style.fontWeight = "bold";
+    }
+
+    el.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+    
+    console.log(el.style.color);
+  }
+
+  function mouseOutLink(el) {
+    el.style.color = "black";
+    el.style.fontWeight = "normal";
+    el.innerHTML = "link";
+  }
+
+  function clickedLink(el, i) {
+    if (i === correctLinkIndex) {
+      el.innerHTML = "yep!";
+      
+      setTimeout(() => redirect('links'), 1000);
+
+    } else {
+      el.innerHTML = "nope";
+    }
+  }
+
+  function bodyLoaded() {
+    let content = "";
+    for (let i = 0; i < numLinks; i++) {
+      content += "<span id='link" + i.toString() + "' onmouseover='mouseOverLink(this, " + i.toString() + ")' onmouseout='mouseOutLink(this)' onclick='clickedLink(this, " + i.toString() + ")'>link</span>\n";
+    }
+    document.getElementById("container").innerHTML = content;
+  }
+</script>
+
+<style type="text/css">
+  body {
+    width: 100vw;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+    cursor: none;
+  }
+  span {
+    color: ;
+  }
+  span:hover {
+
+  }
+  span:active {
+
+  }
+  #container {
+    display: inline-block;
+    width: 100vw;
+  }
+</style>
+
+</html>

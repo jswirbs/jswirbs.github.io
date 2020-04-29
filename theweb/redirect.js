@@ -3,6 +3,7 @@ const pages = [
   "colors",
   "dissolve",
   "keyboard",
+  "links",
   "pointer",
   "portal"
 ]
