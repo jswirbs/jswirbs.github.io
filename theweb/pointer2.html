@@ -95,7 +95,6 @@
   }
 
   function bodyLoaded() {
-    alert($_GET['id']);
 
     let pointerContent = "";
     let menuContent = "";
@@ -113,7 +112,7 @@
       let x = Math.floor(Math.random() * window.innerWidth);
       let y = Math.floor(Math.random() * window.innerHeight);
 
-      menuContent += '<a class="navitem" style="left: 2px" id="home' + i + '" href="">Home</a> <a class="navitem" style="left: 55px" id="about' + i + '" href="#" onclick="aboutClicked(' + i + ')">About</a> <a class="navitem" style="left: 110px" id="help' + i + '" onclick="redirect()">HELP!</a>';
+      menuContent += '<a class="navitem" style="left: 2px" id="home' + i + '" href="">Home</a> <a class="navitem" style="left: 55px" id="about' + i + '" href="#" onclick="aboutClicked(' + i + ')">About</a> <a class="navitem" style="left: 110px" id="help' + i + '" href="#" onclick="redirect()">HELP!</a>';
     }
     document.getElementById("menuContainer").innerHTML = menuContent;
 

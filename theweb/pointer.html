@@ -2,12 +2,13 @@
 <html>
 <head>
   <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
 </head>
 
 <body onmousemove="mouseMoved(event)" onload="bodyLoaded()">
   <a class="navitem" style="left: 2px" id="home" href="">Home</a>
   <a class="navitem" style="left: 55px" id="about" href="#" onclick="aboutClicked()">About</a>
-  <a class="navitem" style="left: 110px" id="help" href="/theweb/pointer2">Help</a>
+  <a class="navitem" style="left: 110px" id="help" href="#" onclick="redirect('pointer2')">Help</a>
 
   <img src="pointer.png" width="24" class="pointer" id="pointer0">
   <img src="pointer.png" width="24" class="pointer" id="pointer1">
