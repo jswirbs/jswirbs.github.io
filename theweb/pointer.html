@@ -6,46 +6,21 @@
 </head>
 
 <body onmousemove="mouseMoved(event)" onload="bodyLoaded()">
-  <a class="navitem" style="left: 2px" id="home" href="">Home</a>
-  <a class="navitem" style="left: 55px" id="about" href="#" onclick="aboutClicked()">About</a>
-  <a class="navitem" style="left: 110px" id="help" href="#" onclick="redirect('pointer2')">Help</a>
+  <div id="menuContainer">
+    
+  </div>
 
-  <img src="pointer.png" width="24" class="pointer" id="pointer0">
-  <img src="pointer.png" width="24" class="pointer" id="pointer1">
-  <img src="pointer.png" width="24" class="pointer" id="pointer2">
-  <img src="pointer.png" width="24" class="pointer" id="pointer3">
-  <img src="pointer.png" width="24" class="pointer" id="pointer4">
-  <img src="pointer.png" width="24" class="pointer" id="pointer5">
-  <img src="pointer.png" width="24" class="pointer" id="pointer6">
-  <img src="pointer.png" width="24" class="pointer" id="pointer7">
-  <img src="pointer.png" width="24" class="pointer" id="pointer8">
-  <img src="pointer.png" width="24" class="pointer" id="pointer9">
-  <img src="pointer.png" width="24" class="pointer" id="pointer10">
-  <img src="pointer.png" width="24" class="pointer" id="pointer11">
-  <img src="pointer.png" width="24" class="pointer" id="pointer12">
-  <img src="pointer.png" width="24" class="pointer" id="pointer13">
-  <img src="pointer.png" width="24" class="pointer" id="pointer14">
-  <img src="pointer.png" width="24" class="pointer" id="pointer15">
-  <img src="pointer.png" width="24" class="pointer" id="pointer16">
-  <img src="pointer.png" width="24" class="pointer" id="pointer17">
-  <img src="pointer.png" width="24" class="pointer" id="pointer18">
-  <img src="pointer.png" width="24" class="pointer" id="pointer19">
-  <img src="pointer.png" width="24" class="pointer" id="pointer20">
-  <img src="pointer.png" width="24" class="pointer" id="pointer21">
-  <img src="pointer.png" width="24" class="pointer" id="pointer22">
-  <img src="pointer.png" width="24" class="pointer" id="pointer23">
-  <img src="pointer.png" width="24" class="pointer" id="pointer24">
-  <img src="pointer.png" width="24" class="pointer" id="pointer25">
-  <img src="pointer.png" width="24" class="pointer" id="pointer26">
-  <img src="pointer.png" width="24" class="pointer" id="pointer27">
-  <img src="pointer.png" width="24" class="pointer" id="pointer28">
-  <img src="pointer.png" width="24" class="pointer" id="pointer29">
-  <img src="pointer.png" width="24" class="pointer" id="pointer30">
-  <img src="pointer.png" width="24" class="pointer" id="pointer31">
+  <div id="pointerContainer">
+    
+  </div>
+  
 </body>
 
 <script type="text/javascript">
   let numPointers = 32;
+  let numMenus = 1;
+  let phase = 1;
+  let bodyBackgroundColor = "black";
 
   function pxToInt(px) {
     return Number(px.split("px")[0]);
@@ -70,49 +45,87 @@
       element.style.top = y.toString() + "px";
       element.style.left = x.toString() + "px";
     }
-    for (let i = 0; i < 3; i++) {
-      let element;
-      if (i == 1) {
-        element = document.getElementById("home");
-      } else if (i == 2) {
-        element = document.getElementById("help");
-      } else {
-        element = document.getElementById("about");
-      }
+    for (let i = 0; i < numMenus; i++) {
+      for (let j = 0; j < 3; j++) {
+        let element;
+        if (j % 3 == 1) {
+          element = document.getElementById("home" + i);
+        } else if (j % 3 == 2) {
+          element = document.getElementById("help" + i);
+        } else {
+          element = document.getElementById("about" + i);
+        }
 
-      let x = pxToInt(element.style.left) + e.movementX * ((i + 1) % 17) * Math.pow(-1, (i*3) % 5);
-      let y = pxToInt(element.style.top) + e.movementY * ((i + 1) % 13) * Math.pow(-1, i);
+        let x = pxToInt(element.style.left) + e.movementX * ((j + 1)*(i + 1) % 37) * Math.pow(-1, (j*3) % 5);
+        let y = pxToInt(element.style.top) + e.movementY * ((j + 1)*(i + 1) % 27) * Math.pow(-1, j);
 
-      while (x < -12) {
-        x += window.innerWidth;
-      }
-      while (y < 12) {
-        y += window.innerHeight;
-      }
-      x %= window.innerWidth;
-      y %= window.innerHeight;
+        while (x < -12) {
+          x += window.innerWidth;
+        }
+        while (y < 12) {
+          y += window.innerHeight;
+        }
+        x %= window.innerWidth;
+        y %= window.innerHeight;
 
-      element.style.top = y.toString() + "px";
-      element.style.left = x.toString() + "px";
+        element.style.top = y.toString() + "px";
+        element.style.left = x.toString() + "px";
+      }
     }
   }
 
-  function aboutClicked() {
-    let element = document.getElementById("about");
+  function aboutClicked(i) {
+    let element = document.getElementById("about" + i);
     let x = (pxToInt(element.style.left) + 50) % window.innerWidth;
     element.style.left = x.toString() + "px";
   }
 
+  function flashScreen() {
+    if (bodyBackgroundColor == "white") {
+      bodyBackgroundColor = "black";
+    } else {
+      bodyBackgroundColor = "white";
+    }
+
+    document.body.style.backgroundColor = bodyBackgroundColor;
+
+    let timeout = Math.floor(Math.random * 40) + 10;
+
+    setTimeout(flashScreen, timeout);
+  }
+
+  function phase2() {
+    numPointers = 1000;
+    numMenus = 20;
+    phase = 2;
+
+    bodyLoaded();
+    flashScreen();
+  }
+
   function bodyLoaded() {
+
+    let pointerContent = "";
+    let menuContent = "";
+
     for (let i = 0; i < numPointers; i++) {
-      let element = document.getElementById("pointer" + i.toString());
+      let x = Math.floor(Math.random() * window.innerWidth);
+      let y = Math.floor(Math.random() * window.innerHeight);
+
+      pointerContent += '<img src="pointer.png" width="24" class="pointer" id="pointer' + i + '" style="top: ' + y.toString() + 'px; left: ' + x.toString() + 'px">';
+    }
+    document.getElementById("pointerContainer").innerHTML = pointerContent;
+
+    for (let i = 0; i < numMenus; i++) {
 
       let x = Math.floor(Math.random() * window.innerWidth);
       let y = Math.floor(Math.random() * window.innerHeight);
 
-      element.style.top = y.toString() + "px";
-      element.style.left = x.toString() + "px";
+      menuContent += '<a class="navitem" style="left: 2px" id="home' + i + '" href="">Home</a> <a class="navitem" style="left: 55px" id="about' + i + '" href="#" onclick="aboutClicked(' + i + ')">About</a> <a class="navitem" style="left: 110px" id="help' + i + '" href="#" onclick="' 
+        + (phase == 1 ? "phase2()" : "redirect()") + '">' 
+        + (phase == 1 ? "Help" : "HELP!") + '</a>';
     }
+    document.getElementById("menuContainer").innerHTML = menuContent;
   }
 </script>
 
