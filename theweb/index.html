@@ -2,38 +2,91 @@
 <html>
 <head>
   <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
 </head>
 
 <body onload="bodyLoaded()">
-
+  <div class="container">
+    <p>
+      the web.
+    </p>
+    <p>
+      a weird parallel web of resources interlinked by hypertext and accessible over the internet. it may be accessed by a web browser and is explicitly not made for mobile. tested on chrome. kind of. this may hurt a little. 
+    </p>
+    <i id="enter" onmouseover="mouseOverEnter()" onmouseout="mouseOutEnter()" onclick="redirect()">
+      enter.
+    </i>
+  </div>
 </body>
 
 <script type="text/javascript">
+  let colorCounter = 0;
+  let enterActive = false;
+
+  function updateBodyColor() {
+    colorCounter += .04;
+
+    let r = Math.sin(colorCounter + 0) * 127 + 110;
+    let g = Math.sin(colorCounter + 2) * 127 + 110;
+    let b = Math.sin(colorCounter + 4) * 127 + 110;
+
+    document.body.style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+
+    r = 256-r;
+    g = 256-g;
+    b = 256-b;
+
+    document.getElementById("enter").style.color = "rgb(" + r + ", " + g + ", " + b + ")";
+
+    setTimeout(updateBodyColor, 20);
+  }
+
+  function growEnter() {
+    if (enterActive) {
+      let fontSize = Number((document.getElementById("enter").style.fontSize || "16px").split("px")[0]);
+      fontSize += 1;
+      document.getElementById("enter").style.fontSize = fontSize.toString() + "px";
+    }
+
+    setTimeout(growEnter, 20);
+  }
+
+
+  function mouseOverEnter() {
+    enterActive = true;
+  }
+
+  function mouseOutEnter() {
+    enterActive = false;
+    document.getElementById("enter").style.fontSize = "16px";
+  }
+
   function bodyLoaded() {
-    let target; 
-
-    let x = Math.floor(Math.random() * 7);
-
-    if (x == 0) {
-      target = "/theweb/ahhh";
-    } else if (x == 1) {
-      target = "/theweb/colors";
-    } else if (x == 2) {
-      target = "/theweb/dissolve";
-    } else if (x == 3) {
-      target = "/theweb/keyboard";
-    } else if (x == 4) {
-      target = "/theweb/pointer";
-    } else if (x == 5) {
-      //target = "/theweb/pointer2";
-      // never start with pointer2, someone could get hurt, just make it more likely to go to pointer (then pointer2)
-      target = "/theweb/pointer";
-    } else {
-      target = "/theweb/portal";
-    } 
-
-    window.location.href = target;
+    updateBodyColor();
+    growEnter();
   }
 </script>
+
+<style type="text/css">
+  body {
+    width: 100vw;
+    text-align: center;
+    padding: 100px 0;
+    margin: 0;
+    font-size: 16;
+  }
+  .container {
+    display: inline-block;
+    width: 500px;
+  }
+  #enter {
+    text-decoration: italic;
+    font-size: 16px;
+  }
+  #enter:hover {
+    cursor: pointer;
+    font-weight: bold;
+  }
+</style>
 
 </html>

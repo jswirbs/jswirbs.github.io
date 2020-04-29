@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
 </head>
 
 <body onmousemove="followMouse(event)" onclick="mouseClicked(event)" onload="bodyLoaded()">
@@ -32,7 +33,7 @@
   function mouseClicked(e) {
     if ((e.x < window.innerWidth - 100) && (e.x > window.innerWidth - 204)) {
       if ((e.y > 100) && (e.y < 116)) {
-        window.location.href = "/theweb/ahhh";
+        redirect();
       }  
     }
   }

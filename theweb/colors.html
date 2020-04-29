@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
 </head>
 
 <body onload="bodyLoaded()">
@@ -58,7 +59,7 @@
 
   function dissipate() {
     setTimeout(() => {
-      window.location.href = "/theweb/dissolve";
+      redirect();
     }, 3000);
 
     flickerWords();

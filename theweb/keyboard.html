@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
 </head>
 
 <body onload="extend()">
@@ -51,7 +52,7 @@
     } else if (x == 'e' && stage == 1) {
       stage = 2;
     } else if (x == 's' && stage == 2) {
-      window.location.href = "/theweb/pointer";
+      redirect();
     } else {
       stage = 0;
     }

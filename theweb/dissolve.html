@@ -2,6 +2,7 @@
 <html>
 <head>
   <title>the web</title>
+  <script type="text/javascript" src="./redirect.js"></script>
 </head>
 
 <body onload="bodyLoaded()">
@@ -20,7 +21,7 @@
 
   function checkVisibility() {
     if (numVisible == 0) {
-      window.location.href = "/theweb/keyboard";
+      redirect();
     } else {
       setTimeout(checkVisibility, 500);
     }
