@@ -21,7 +21,7 @@
 
   function checkVisibility() {
     if (numVisible == 0) {
-      redirect();
+      redirect('dissolve');
     } else {
       setTimeout(checkVisibility, 500);
     }

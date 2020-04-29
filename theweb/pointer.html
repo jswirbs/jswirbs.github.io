@@ -122,7 +122,7 @@
       let y = Math.floor(Math.random() * window.innerHeight);
 
       menuContent += '<a class="navitem" style="left: 2px" id="home' + i + '" href="">Home</a> <a class="navitem" style="left: 55px" id="about' + i + '" href="#" onclick="aboutClicked(' + i + ')">About</a> <a class="navitem" style="left: 110px" id="help' + i + '" href="#" onclick="' 
-        + (phase == 1 ? "phase2()" : "redirect()") + '">' 
+        + (phase == 1 ? "phase2()" : "redirect('pointer')") + '">' 
         + (phase == 1 ? "Help" : "HELP!") + '</a>';
     }
     document.getElementById("menuContainer").innerHTML = menuContent;

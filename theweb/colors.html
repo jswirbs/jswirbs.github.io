@@ -3,6 +3,7 @@
 <head>
   <title>the web</title>
   <script type="text/javascript" src="./redirect.js"></script>
+  <meta name="google" content="notranslate">
 </head>
 
 <body onload="bodyLoaded()">
@@ -59,7 +60,7 @@
 
   function dissipate() {
     setTimeout(() => {
-      redirect();
+      redirect('colors');
     }, 3000);
 
     flickerWords();
