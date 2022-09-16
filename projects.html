@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<title>JUSTIN SWIRBUL</title>
-		
+
 		<meta charset="utf-8">
 		<meta property="og:site_name" content="JUSTIN SWIRBUL"/>
 		<meta property="og:title" content="Projects"/>
@@ -55,7 +55,9 @@
 			&nbsp; // &nbsp;
 			<a id="mini-minecraft-scroll" class="scroll-link">Mini Minecraft</a>
 			&nbsp; // &nbsp;
-			<a id="atlas-scroll" class="scroll-link">Atlas</a>
+			<a id="verstaan-scroll" class="scroll-link">Verstaan</a>
+			&nbsp; // &nbsp;
+			<a id="live-coding-scroll" class="scroll-link">Live Coding</a>
 		</div>
 
 
@@ -70,9 +72,67 @@
 			<br><br><br>
 			<a class="icon" href="https://github.com/jswirbs" target="_blank"><i class="fa fa-github"><span class="icon-text">github</span></i></a>
 		</div>
-		
 
-		<div class="project-header" id="atlas">
+
+		<div class="project-header" id="live-coding">
+
+			<div class="project-header-left">
+				<h1>
+					Live Coding
+				</h1>
+				<p style="font-size: 24px;">
+					Making music with code in real-time, with reactive visuals.
+				</p>
+			</div>
+
+			<div class="project-header-right">
+				<h3>
+					DATE
+				</h3>
+				<p>
+					February 2021 - Current
+				</p>
+				<h3>
+					LINK
+				</h3>
+				<p>
+					<a href="https://github.com/jswirbs/live-coding" target="_blank">https://github.com/jswirbs/live-coding</a>
+				</p>
+				<h3>
+					SKILLS
+				</h3>
+				<p>
+					TidalCycles &nbsp;//&nbsp; SuperCollider &nbsp;//&nbsp; Processing &nbsp;//&nbsp; Java
+				</p>
+			</div>
+
+		</div>
+
+
+		<div class="project-body" style="background-color: rgba(248, 251, 146, .4);">
+
+			<img src="./img/live-coding.gif" width="100%">
+
+		</div>
+
+		<div class="project-body" style="background-color: white;">
+
+			<h3>THE MUSIC</h3>
+			<br>
+			<div style="margin-bottom: 60px;">
+				Live coding is the act of using code as an interface to produce some sort of output in real-time. I use TidalCycles, a patterning language built on Haskell, to make music by compounding different patterns of sound and effects. These sequenced patterns of sounds are sent to a backend synth/sampler called SuperDirt, built on SuperCollider, which produces the actual audio output. The use of interactive programming to generate creative output is a great way to experiment with code in a unique fashion, and it's a lot of fun to engage with this distinct code related mindset and create some interesting sounds.
+			</div>
+
+			<h3>THE VISUALS</h3>
+			<br>
+			<div>
+				I have created various 2D reactive animations using Processing, a graphics library on top of Java. I typically create geometric scenes with generative aspects. I then output the generated patterns of sound from TidalCycles as OSC messages, which my Processing code can listen for and use to create visual events, triggered by these audio events. This enables visuals that can react to specific changes I make to the music, line up with specific sounds/samples, and other granular control of visual events from the live coding environment.
+			</div>
+
+		</div>
+
+
+		<div class="project-header" id="verstaan">
 
 			<div class="project-header-left">
 				<h1>
@@ -106,7 +166,7 @@
 
 		</div>
 
-		
+
 		<div class="project-body" style="background-color: rgba(137, 194, 247, .3);">
 
 			<div style="text-align: center;">
@@ -136,7 +196,7 @@
 			<h3>THE PLATFORM</h3>
 			<br>
 			<div>
-				Atlas optimizes threat management for global security teams by streamlining workflow between administrators and employees, integrating open- and professionally-sourced threat data into a single centralized platform, and using data science to provide proactive routing and threat intelligence. 
+				Atlas optimizes threat management for global security teams by streamlining workflow between administrators and employees, integrating open- and professionally-sourced threat data into a single centralized platform, and using data science to provide proactive routing and threat intelligence.
 			</div>
 
 		</div>
@@ -175,7 +235,7 @@
 			</div>
 
 		</div>
-		
+
 		<div class="project-body" style="background-color: rgba(153, 240, 153, .3);">
 
 			<iframe width="560" height="315" src="https://www.youtube.com/embed/ZM_gJLMxKt0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width: 100%; height: 400px;"></iframe>
@@ -183,7 +243,7 @@
 		</div>
 
 		<div class="project-body" style="background-color: white;">
-			
+
 			<h3>THE PROJECT</h3>
 			<br>
 			The final project for an Interactive Computer Graphics class was to create a 3D interactive world exploration game in the style of Minecraft. We worked on teams of three where I focused mainly on all of the procedural generation. Some of the features I implemented include:
@@ -244,14 +304,14 @@
 		</div>
 
 		<div class="project-body" style="background-color: white;">
-			
+
 			<h3>THE INSPIRATION</h3>
 			<br>
 			A friend and I were interested in the cybersecurity of embedded devices and the Internet of Things (IoT). We began talking with two professors at Penn about this field and about botnets, focusing in on the Mirai botnet that utilized over 600,000 infected IoT devices in multiple large scale DDoS attacks. We began research and discussions about this and potential solutions throughout our sophomore year, and then did further research on specific medical devices and communication protocols as we moved into the summer. We devised a high level solution inspired by the botnets we aimed to protect against and set out to build a prototype.
 
 			<h3 style="margin-top: 60px;">THE PROJECT</h3>
 			<br>
-			After researching Mirai and poring over the source code, we outlined a modified version of a reverse engineered botnet that could act as a security solution. Over the summer we then created the initial version of this device using Python and C. The code can be run on a computer or raspberry pi plugged into a network, where it discovers other devices on that network, scans them for open ports/services, checks for weak or default credentials, and then monitors the network for malicious traffic. 
+			After researching Mirai and poring over the source code, we outlined a modified version of a reverse engineered botnet that could act as a security solution. Over the summer we then created the initial version of this device using Python and C. The code can be run on a computer or raspberry pi plugged into a network, where it discovers other devices on that network, scans them for open ports/services, checks for weak or default credentials, and then monitors the network for malicious traffic.
 
 			<img src="./img/IoMTSecurityResearch.png" width="100%" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin-top: 90px;">
 
@@ -292,9 +352,9 @@
 			</div>
 
 		</div>
-		
+
 		<div class="project-body" style="background-color: rgba(247, 194, 153, .3); text-align: center;">
-			
+
 			<h3>SYSTEM ARCHITECTURE</h3>
 			<br>
 			<img src="./img/ectf-architecture.png" width="80%">
@@ -302,16 +362,16 @@
 		</div>
 
 		<div class="project-body" style="background-color: white;">
-			
+
 			<h3>THE BUILD PHASE</h3>
 			<br>
-			To begin the eCTF Challenge, our team of 11 began to devise a high-level system design in line with the requirements. The goal was to create an ATM/bank system as securely as possible under a quickly approaching deadline. We split into smaller teams to actually implement our design, and I focused on creating the bank controller and database using python and SQLite3. Developing a large-scale system on a team with rapidly approaching deadlines was an extremely useful and rewarding experience. 
+			To begin the eCTF Challenge, our team of 11 began to devise a high-level system design in line with the requirements. The goal was to create an ATM/bank system as securely as possible under a quickly approaching deadline. We split into smaller teams to actually implement our design, and I focused on creating the bank controller and database using python and SQLite3. Developing a large-scale system on a team with rapidly approaching deadlines was an extremely useful and rewarding experience.
 
 			<h3 style="margin-top: 60px;">THE ATTACK PHASE</h3>
 			<br>
 			After submitting our design, we began evaluating the other teams' designs in an attempt to exploit flaws in their systems. I initially worked with a few people attempting to exploit one team's message authentication. We were able to devise a replay attack that allowed us to clone an ATM card and then be able to read and write to someone's account without authorization. This exploited the fact that their transaction IDs never expired, as was the case with many teams including ourselves (it was a feature we wanted to implement but did not have time before the deadline arrived). This allowed us to use this attack methedology on multiple systems, in addition to the many other vulnerabilities our team was able to find. We ended up coming in third place out of some experienced teams which was a nice outcome, and the overall challenge was a great learning experience.
 
-			
+
 			<div style="text-align: center;">
 				<h3 style="margin-top: 90px;">THE TEAM IN ACTION</h3>
 				<br>
@@ -478,7 +538,7 @@
 			}
 
 
-			
+
 			/* FADE INS */
 			@keyframes fadein {
 			    from { opacity: 0; }
@@ -534,7 +594,7 @@
 		function smoothScroll(element, duration) {
 			var startingY = window.pageYOffset
 			var elementY = window.pageYOffset + document.querySelector(element).getBoundingClientRect().top
-			
+
 			// If element is close to page's bottom then window will scroll only to some position above the element.
 			var targetY = document.body.scrollHeight - elementY < window.innerHeight ? document.body.scrollHeight - window.innerHeight : elementY
 			var diff = targetY - startingY
@@ -568,12 +628,13 @@
 			})
 		}
 
-		document.getElementById('initial-scroll').addEventListener('click', smoothScroll.bind(null, '#atlas', 1000))
-		document.getElementById('atlas-scroll').addEventListener('click', smoothScroll.bind(null, '#atlas', 1000))
+		document.getElementById('initial-scroll').addEventListener('click', smoothScroll.bind(null, '#live-coding', 1000))
+		document.getElementById('live-coding-scroll').addEventListener('click', smoothScroll.bind(null, '#live-coding', 1000))
+		document.getElementById('verstaan-scroll').addEventListener('click', smoothScroll.bind(null, '#verstaan', 1000))
 		document.getElementById('mini-minecraft-scroll').addEventListener('click', smoothScroll.bind(null, '#mini-minecraft', 1000))
 		document.getElementById('boxnet-scroll').addEventListener('click', smoothScroll.bind(null, '#boxnet', 1000))
 		document.getElementById('ectf-challenge-scroll').addEventListener('click', smoothScroll.bind(null, '#ectf-challenge', 1000))
-		document.getElementById('top-scroll').addEventListener('click', smoothScroll.bind(null, '#atlas', 1500))
+		document.getElementById('top-scroll').addEventListener('click', smoothScroll.bind(null, '#live-coding', 1500))
 
 
 
@@ -590,31 +651,28 @@
 
 		function highlightLinks() {
 			var threshold = 400;
+			var normal = "#666"
 			var highlight = '#ee3322';
+
+			document.getElementById('ectf-challenge-scroll').style.color = normal;
+			document.getElementById('boxnet-scroll').style.color = normal;
+			document.getElementById('mini-minecraft-scroll').style.color = normal;
+			document.getElementById('verstaan-scroll').style.color = normal;
+			document.getElementById('live-coding-scroll').style.color = normal;
 
 			if (checkPositioning(document.getElementById('ectf-challenge'), threshold)) {
 				document.getElementById('ectf-challenge-scroll').style.color = highlight;
-				document.getElementById('boxnet-scroll').style.color = '#666';
-				document.getElementById('mini-minecraft-scroll').style.color = '#666';
-				document.getElementById('atlas-scroll').style.color = '#666';
 			} else if (checkPositioning(document.getElementById('boxnet'), threshold)) {
-				document.getElementById('ectf-challenge-scroll').style.color = '#666';
 				document.getElementById('boxnet-scroll').style.color = highlight;
-				document.getElementById('mini-minecraft-scroll').style.color = '#666';
-				document.getElementById('atlas-scroll').style.color = '#666';
 			} else if (checkPositioning(document.getElementById('mini-minecraft'), threshold)) {
-				document.getElementById('ectf-challenge-scroll').style.color = '#666';
-				document.getElementById('boxnet-scroll').style.color = '#666';
 				document.getElementById('mini-minecraft-scroll').style.color = highlight;
-				document.getElementById('atlas-scroll').style.color = '#666';
-			} else if (checkPositioning(document.getElementById('atlas'), threshold)) {
-				document.getElementById('ectf-challenge-scroll').style.color = '#666';
-				document.getElementById('boxnet-scroll').style.color = '#666';
-				document.getElementById('mini-minecraft-scroll').style.color = '#666';
-				document.getElementById('atlas-scroll').style.color = highlight;
+			} else if (checkPositioning(document.getElementById('verstaan'), threshold)) {
+				document.getElementById('verstaan-scroll').style.color = highlight;
+			} else if (checkPositioning(document.getElementById('live-coding'), threshold)) {
+				document.getElementById('live-coding-scroll').style.color = highlight;
 			}
 		}
-		
+
 	</script>
 
 </html>
