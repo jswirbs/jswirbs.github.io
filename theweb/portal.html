@@ -12,33 +12,43 @@
 </body>
 
 <script type="text/javascript">
-  let portalSize = 5940; 
+  let portalSize = 5940;
+
+  let x = (Math.random() * (window.innerWidth - 200)); //.toFixed();
+  let y = (Math.random() * (window.innerHeight - 50)); //.toFixed();
+
+  let xBuffer = 104;
+  let yBuffer = 16;
+
+  console.log(x + ", " + y)
 
   function followMouse(e) {
     let portal = document.getElementById("portal");
     portal.style.left = (e.clientX - portalSize/2).toString() + "px";
     portal.style.top = (e.clientY - portalSize/2).toString() + "px";
 
-    if ((e.x < window.innerWidth - 100) && (e.x > window.innerWidth - 204)) {
-      if ((e.y > 100) && (e.y < 116)) {
-        document.body.style.cursor = "pointer";
-      } else {
-        document.body.style.cursor = "default";
-      }
+    // console.log(e.x + ", " + e.y)
+    // console.log(x + 50)
+    // console.log("(" + e.x + ">" + x + ") && (" + e.x + "<" + "(" + (x + 50) + ") && (" + e.y + ">" + y +") && (" + e.y + "<" + (y + 16) + ")")
+    // console.log((e.x > x) && (e.x < (x + 50)) && (e.y > y) && (e.y < (y + 16)))
+
+    if ((e.x > x) && (e.x < (x + xBuffer)) && (e.y > y) && (e.y < (y + yBuffer))) {
+      document.body.style.cursor = "pointer";
     } else {
       document.body.style.cursor = "default";
     }
   }
 
   function mouseClicked(e) {
-    if ((e.x < window.innerWidth - 100) && (e.x > window.innerWidth - 204)) {
-      if ((e.y > 100) && (e.y < 116)) {
-        redirect('portal');
-      }  
+    if ((e.x > x) && (e.x < (x + xBuffer)) && (e.y > y) && (e.y < (y + yBuffer))) {
+      redirect('portal');
     }
   }
 
   function bodyLoaded() {
+    document.getElementById("text").style.top = y + "px";
+    document.getElementById("text").style.left = x + "px";
+
     document.body.style.visibility = "visible";
   }
 </script>
@@ -58,10 +68,10 @@
     position: fixed;
   }
 
-  #text {
+  /* #text {
     top: 100px;
     right: 100px;
-  }
+  } */
   #portal {
     position: fixed;
     top: 0;

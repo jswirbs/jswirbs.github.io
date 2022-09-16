@@ -7,19 +7,19 @@
 
 <body onload="bodyLoaded()">
   <div id="container">
-    
+
   </div>
 </body>
 
 <script type="text/javascript">
   let numLinks = 2000;
-  let correctLinkIndex = 420;
+  let correctLinkIndex = Math.floor((Math.random() * (numLinks * 0.8)) + (numLinks * 0.1));
 
   function mouseOverLink(el, i) {
     // base color, will be scaled according to index
     let r = 0;
     let g = 127;
-    let b = 255; 
+    let b = 255;
 
     let diff = Math.abs(correctLinkIndex - i);
     let scale = Math.floor(2 * (127 - diff));
@@ -48,7 +48,7 @@
   function clickedLink(el, i) {
     if (i === correctLinkIndex) {
       el.innerHTML = "yep";
-      
+
       setTimeout(() => redirect('links'), 1000);
 
     } else {
